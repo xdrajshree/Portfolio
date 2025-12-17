@@ -97,7 +97,7 @@ body {
 
     .intro {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
         margin: 20px;
         padding: 20px;
     }
