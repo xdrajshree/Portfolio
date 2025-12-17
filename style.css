@@ -51,92 +51,42 @@
 
     margin: 60px 80px;
     padding: 40px;
-
-    border-style:solid;
-    border-radius:10px;
-
-    background-color:rgba(0, 0, 0, 0.2);
-
+    border-style: solid;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
 }
-.introtext{
+
+.introtext {
     max-width: 60%;
 }
-.introtext .hello{
+
+.introtext .hello {
     font-size: 22px;
 }
-.introtext h2{
+
+.introtext h2 {
     margin: 15px 0px;
     font-size: 32px;
 }
-.introtext h2:hover{
+
+.introtext h2:hover {
     transition: magnify 1.3s ease-in-out;
     transform: scale(1.05);
 }
-.introtext p{
+
+.introtext p {
     font-size: 18px;
     line-height: 1.6;
 }
-.introimage img{
-    width: 250px ;
+
+.introimage img {
+    width: 250px;
     height: auto;
     border-radius: 4%;
     border: 3px solid white;
 }
-.introimage img:hover{
+
+.introimage img:hover {
     transform: scale(1.05);
-    transition: all 0.3s out;
-}
-
-/* =========================
-   MOBILE RESPONSIVE
-   ========================= */
-
-@media (max-width: 768px) {
-
-    /* Navbar */
-    .navbar ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar li {
-        float: none;
-        margin: 10px 0;
-    }
-
-    .logo {
-        float: none;
-        margin-bottom: 10px;
-    }
-
-    /* Intro section */
-    .intro {
-        flex-direction: column;
-        text-align: center;
-
-        margin: 20px;
-        padding: 20px;
-    }
-
-    .introtext {
-        max-width: 100%;
-    }
-
-    .introtext h2 {
-        font-size: 26px;
-    }
-
-    .introtext p {
-        font-size: 16px;
-    }
-
-    /* Image */
-    .introimage {
-        margin-top: 20px;
-    }
-
-    .introimage img {
-        width: 180px;
-    }
+    transition: all 0.3s ease-in-out;
 }
