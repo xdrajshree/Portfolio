@@ -1,99 +1,87 @@
-:root {
-  color-scheme: dark;
-  --bg: #050505;
-  --panel: rgba(18, 16, 11, 0.78);
-  --panel-strong: #11100d;
-  --gold: #f6c85f;
-  --gold-bright: #ffe6a3;
-  --gold-muted: #b98b32;
-  --text: #f8efd8;
-  --muted: #bcb3a0;
-  --line: rgba(246, 200, 95, 0.2);
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+const canvas = document.querySelector("#gold-grid");
+const ctx = canvas.getContext("2d");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let points = [];
+let animationFrame;
+
+function resizeCanvas() {
+  const pixelRatio = window.devicePixelRatio || 1;
+  canvas.width = window.innerWidth * pixelRatio;
+  canvas.height = window.innerHeight * pixelRatio;
+  canvas.style.width = `${window.innerWidth}px`;
+  canvas.style.height = `${window.innerHeight}px`;
+  ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+  createPoints();
 }
 
-* {
-  box-sizing: border-box;
+function createPoints() {
+  const count = Math.min(42, Math.floor(window.innerWidth / 32));
+  points = Array.from({ length: count }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * Math.min(window.innerHeight, 760),
+    radius: Math.random() * 1.2 + 0.5,
+    vx: (Math.random() - 0.5) * 0.12,
+    vy: (Math.random() - 0.5) * 0.12
+  }));
 }
 
-html {
-  scroll-behavior: smooth;
+function draw() {
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  ctx.fillStyle = "rgba(215, 173, 80, 0.42)";
+  ctx.strokeStyle = "rgba(215, 173, 80, 0.08)";
+
+  points.forEach((point, index) => {
+    if (!prefersReducedMotion.matches) {
+      point.x += point.vx;
+      point.y += point.vy;
+    }
+
+    if (point.x < 0 || point.x > window.innerWidth) point.vx *= -1;
+    if (point.y < 0 || point.y > window.innerHeight) point.vy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    for (let next = index + 1; next < points.length; next += 1) {
+      const other = points[next];
+      const distance = Math.hypot(point.x - other.x, point.y - other.y);
+
+      if (distance < 150) {
+        ctx.globalAlpha = 1 - distance / 150;
+        ctx.beginPath();
+        ctx.moveTo(point.x, point.y);
+        ctx.lineTo(other.x, other.y);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+    }
+  });
+
+  animationFrame = requestAnimationFrame(draw);
 }
 
-body {
-  min-height: 100vh;
-  margin: 0;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(246, 200, 95, 0.12), transparent 26rem),
-    radial-gradient(circle at 82% 22%, rgba(185, 139, 50, 0.1), transparent 22rem),
-    var(--bg);
-  color: var(--text);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.6;
-}
+document.querySelector("#year").textContent = new Date().getFullYear();
 
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  content: "";
-  background-image:
-    linear-gradient(rgba(246, 200, 95, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(246, 200, 95, 0.045) 1px, transparent 1px);
-  background-size: 76px 76px;
-  mask-image: linear-gradient(to bottom, black, transparent 78%);
-}
+document.querySelectorAll(".filter-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
 
-a {
-  color: inherit;
-}
+    document.querySelectorAll(".filter-button").forEach((item) => {
+      item.classList.toggle("active", item === button);
+    });
 
-#gold-grid {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.68;
-}
+    document.querySelectorAll(".project-card").forEach((card) => {
+      card.classList.toggle("hidden", filter !== "all" && card.dataset.category !== filter);
+    });
+  });
+});
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: min(1160px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 18px 0;
-  backdrop-filter: blur(16px);
-}
+window.addEventListener("resize", resizeCanvas);
+prefersReducedMotion.addEventListener("change", () => {
+  cancelAnimationFrame(animationFrame);
+  draw();
+});
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--gold-bright);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.brand-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(246, 200, 95, 0.26), rgba(246, 200, 95, 0.04));
-  box-shadow: inset 0 0 0 1px rgba(255, 230, 163, 0.08);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
+resizeCanvas();
+draw();
