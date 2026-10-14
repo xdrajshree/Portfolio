@@ -85,3 +85,31 @@ prefersReducedMotion.addEventListener("change", () => {
 
 resizeCanvas();
 draw();
+
+const legalToggle = document.getElementById("legalToggle");
+const legalLinks = document.getElementById("legalLinks");
+
+if (legalToggle && legalLinks) {
+  legalToggle.addEventListener("click", () => {
+    const isExpanded =
+      legalToggle.getAttribute("aria-expanded") === "true";
+
+    legalToggle.setAttribute("aria-expanded", String(!isExpanded));
+    legalLinks.hidden = isExpanded;
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".footer-legal")) {
+      legalLinks.hidden = true;
+      legalToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      legalLinks.hidden = true;
+      legalToggle.setAttribute("aria-expanded", "false");
+      legalToggle.focus();
+    }
+  });
+}
