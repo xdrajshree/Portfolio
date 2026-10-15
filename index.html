@@ -1,317 +1,521 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raj Shree | Portfolio</title>
 
-  <meta name="description" content="Explore the portfolio of Raj Shree, a web developer interested in modern web technologies, Python and data science.">
-  <meta name="author" content="Raj Shree">
-  <meta name="theme-color" content="#0f172a">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
-  <title>Raj Shree | Portfolio</title>
+<style>
 
-  <link rel="icon" href="/Images/selfimg.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="/styles.css">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(15,23,42,0.9);
+    backdrop-filter:blur(10px);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:bold;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#38bdf8;
+}
+
+.selfimg {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+    padding:20px;
+    background:linear-gradient(to right,#0f172a,#1e293b);
+}
+
+.selfimg img{
+    width:265px;
+    height:265px;
+    border-radius:50%;
+    border:5px solid #38bdf8;
+    margin-bottom:20px;
+}
+
+.selfimg h1{
+    font-size:3rem;
+}
+
+.selfimg h1 span{
+    color:#38bdf8;
+}
+
+.selfimg p{
+    margin-top:15px;
+    max-width:600px;
+    color:#cbd5e1;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    background:#38bdf8;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+    color:#38bdf8;
+}
+
+.about{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.skill:hover{
+    transform:translateY(-10px);
+}
+
+.skill i{
+    font-size:40px;
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    background:#1e293b;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.project-card img{
+    width:100%;
+}
+
+.project-content{
+    padding:20px;
+}
+
+.project-content h3{
+    margin-bottom:10px;
+}
+
+.project-content p{
+    color:#cbd5e1;
+}
+
+.project-links{
+    margin-top:15px;
+}
+
+.project-links a{
+    color:#38bdf8;
+    text-decoration:none;
+    margin-right:15px;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact-icons{
+    margin-top:30px;
+}
+
+.contact-icons a{
+    color:white;
+    font-size:28px;
+    margin:0 15px;
+    transition:0.3s;
+}
+
+.contact-icons a:hover{
+    color:#38bdf8;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#020617;
+}
+
+.toggle{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    background:#38bdf8;
+    color:white;
+    font-size:20px;
+}
+
+.light-mode{
+    background:#f8fafc;
+    color:#111827;
+}
+
+.light-mode .skill,
+.light-mode .project-card{
+    background:white;
+    color:black;
+}
+
+.light-mode header{
+    background:rgba(255,255,255,0.9);
+}
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:15px;
+}
+
+.selfimg h1{
+    font-size:2rem;
+}
+
+}
+
+</style>
 </head>
 
-    <body class="legal-page">
-  <header class="legal-header">
-    <a class="legal-brand" href="/">Raj Shree<span>.</span></a>
-  </header>
+<body>
 
-  <main class="legal-container">
-    <article class="legal-card">
-      <div class="legal-eyebrow">Legal &amp; Privacy</div>
-      <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: 14 October 2026</p>
+<header>
+<nav>
+<div class="logo">Portfolio</div>
 
-      <!-- Keep your complete legal content here,
-           using real HTML headings, paragraphs and lists. -->
-    </article>
-  </main>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
 
-  <!-- Header -->
-  <header>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a class="logo" href="#home">Raj Shree<span>.</span></a>
+<section class="selfimg" id="home">
 
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<img src="Images/Selfpic.jpg" alt="Profile">
 
-  <main>
-    <!-- Hero -->
-    <section class="selfimg" id="home">
-      <img src="/Images/selfimg.png" alt="Raj Shree">
+<h1>Hello, I'm <span>Raj Shree</span></h1>
 
-      <h1>Hello, I'm <span>Raj Shree</span></h1>
+<h2 id="typing"></h2>
 
-      <h2 id="typing" aria-label="Web developer"></h2>
+<p>
+Passionate Web Developer and Future Data Scientist.
+I create beautiful websites and innovative solutions.
+</p>
 
-      <p>
-        Passionate about web development and exploring data science.
-        I enjoy creating responsive websites and learning new technologies.
-      </p>
+<a href="#projects" class="btn">View Projects</a>
 
-      <a href="#projects" class="btn">View Projects</a>
-    </section>
+</section>
 
-    <!-- About -->
-    <section id="about">
-      <h2 class="section-title">About Me</h2>
+<section id="about">
 
-      <div class="about">
-        <p>
-          I am a developer who enjoys building modern, responsive websites
-          and learning new technologies. I am exploring web development,
-          Python and data science while developing my practical skills
-          through personal projects.
-        </p>
-      </div>
-    </section>
+<h2 class="section-title">About Me</h2>
 
-    <!-- Skills -->
-    <section id="skills">
-      <h2 class="section-title">Skills</h2>
+<div class="about">
+<p>
+I am a passionate developer who loves building modern,
+responsive websites and learning new technologies.
+Currently exploring Web Development, Python, and Data Science.
+</p>
+</div>
 
-      <div class="skills">
-        <div class="skill">
-          <i class="fab fa-html5" aria-hidden="true"></i>
-          <h3>HTML</h3>
-        </div>
+</section>
 
-        <div class="skill">
-          <i class="fab fa-css3-alt" aria-hidden="true"></i>
-          <h3>CSS</h3>
-        </div>
+<section id="skills">
 
-        <div class="skill">
-          <i class="fab fa-js" aria-hidden="true"></i>
-          <h3>JavaScript</h3>
-        </div>
+<h2 class="section-title">Skills</h2>
 
-        <div class="skill">
-          <i class="fab fa-python" aria-hidden="true"></i>
-          <h3>Python</h3>
-        </div>
+<div class="skills">
 
-        <div class="skill">
-          <i class="fab fa-java" aria-hidden="true"></i>
-          <h3>Java</h3>
-        </div>
-      </div>
-    </section>
+<div class="skill">
+<i class="fab fa-html5"></i>
+<h3>HTML</h3>
+</div>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
+<div class="skill">
+<i class="fab fa-css3-alt"></i>
+<h3>CSS</h3>
+</div>
 
-      <div class="projects">
-        <!-- Add your real project cards here. -->
-        <p class="projects-empty">
-          New projects will be added here soon.
-        </p>
-      </div>
-    </section>
+<div class="skill">
+<i class="fab fa-js"></i>
+<h3>JavaScript</h3>
+</div>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2 class="section-title">Contact Me</h2>
+<div class="skill">
+<i class="fab fa-python"></i>
+<h3>Python</h3>
+</div>
 
-      <div class="contact">
-        <p>
-          Email:
-          <a href="mailto:contact@xdrajshree.com">
-            contact@xdrajshree.com
-          </a>
-        </p>
+<div class="skill">
+<i class="fab fa-java"></i>
+<h3>Java</h3>
+</div>
+</div>
 
-        <div class="contact-icons">
-          <!-- Replace # with your actual profile URLs. -->
-          <a href="https://github.com/xdrajshree"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="GitHub">
-            <i class="fab fa-github" aria-hidden="true"></i>
-          </a>
+</section>
 
-          <a href="https://www.linkedin.com/"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="LinkedIn">
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
-          </a>
+<section id="projects">
 
-          <a href="https://twitter.com/"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Twitter">
-            <i class="fab fa-x-twitter" aria-hidden="true"></i>
-          </a>
+<h2 class="section-title">Projects</h2>
 
-          <a href="mailto:contact@xdrajshree.com"
-             aria-label="Send email">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+<!-- <div class="projects">
 
-  <!-- Footer -->
-  <footer>
-    <p>
-      © <span id="year">2026</span> Raj Shree.
-      All rights reserved, where applicable.
-    </p>
+<div class="project-card">
+<img src="https://picsum.photos/500/300?1">
 
-    <div class="footer-legal">
-      <button
-        class="legal-toggle"
-        id="legalToggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="legalLinks"
-      >
-        <span>Legal &amp; Policies</span>
-        <i class="fas fa-chevron-up legal-arrow" aria-hidden="true"></i>
-      </button>
+<div class="project-content">
+<h3>Marriage Hall Website</h3>
+<p>
+Modern responsive website for wedding and event bookings.
+</p>
 
-      <nav
-        class="legal-links"
-        id="legalLinks"
-        aria-label="Legal documents"
-        hidden
-      >
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
-        <a href="/copyright.html">Copyright Notice</a>
-        <a href="/disclaimer.html">Disclaimer</a>
-        <a href="/legal-information.html">Legal Information</a>
-      </nav>
-    </div>
-  </footer>
+<div class="project-links">
+<a href="#">Live Demo</a>
+<a href="#">GitHub</a>
+</div>
 
-  <!-- Theme Toggle -->
+</div>
+</div>
+
+<div class="project-card">
+<img src="https://picsum.photos/500/300?2">
+
+<div class="project-content">
+<h3>Portfolio Website</h3>
+<p>
+Personal portfolio built using HTML, CSS and JavaScript.
+</p>
+
+<div class="project-links">
+<a href="#">Live Demo</a>
+<a href="#">GitHub</a>
+</div>
+
+</div>
+</div>
+
+<div class="project-card">
+<img src="https://picsum.photos/500/300?3">
+
+<div class="project-content">
+<h3>Data Science Dashboard</h3>
+<p>
+Interactive dashboard for analyzing business data.
+</p>
+
+<div class="project-links">
+<a href="#">Live Demo</a>
+<a href="#">GitHub</a>
+</div>
+
+</div>
+</div>
+
+</div> -->
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Contact Me</h2>
+
+<div class="contact">
+
+<p>Email: contact@xdrajshree.com</p>
+<p>Phone: +91 9470261854</p>
+
+<div class="contact-icons">
+
+<a href="#"><i class="fab fa-github"></i></a>
+
+<a href="#"><i class="fab fa-linkedin"></i></a>
+
+<a href="#"><i class="fab fa-twitter"></i></a>
+
+<a href="#"><i class="fas fa-envelope"></i></a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Raj Shree | All Rights Reserved</p>
+
+<div class="footer-legal">
   <button
-    class="toggle"
-    id="themeToggle"
+    class="legal-toggle"
+    id="legalToggle"
     type="button"
-    aria-label="Switch to light mode"
-    aria-pressed="false"
+    aria-expanded="false"
+    aria-controls="legalLinks"
   >
-    <i class="fas fa-moon" aria-hidden="true"></i>
+    <span>Legal</span>
+    <span class="legal-arrow" aria-hidden="true">⌄</span>
   </button>
 
-  <script>
-    // Typing animation
-    const typingElement = document.getElementById("typing");
+  <nav
+    class="legal-links"
+    id="legalLinks"
+    aria-label="Legal documents"
+    hidden
+  >
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+    <a href="/copyright.html">Copyright Notice</a>
+    <a href="/disclaimer.html">Disclaimer</a>
+    <a href="/legal-information.html">Legal Information</a>
+  </nav>
+</div>
 
-    const roles = [
-      "Web Developer",
-      "Freelancer",
-      "Future Data Scientist",
-      "Problem Solver"
-    ];
+</footer>
 
-    let roleIndex = 0;
-    let characterIndex = 0;
-    let deleting = false;
-    let typingTimer;
+<button class="toggle" onclick="toggleMode()">
+<i class="fas fa-moon"></i>
+</button>
 
-    function typeRole() {
-      if (!typingElement) return;
+<script>
 
-      const currentRole = roles[roleIndex];
+const text =
+[
+"Web Developer",
+"Freelancer",
+"Future Data Scientist",
+"Problem Solver with Ai",
+];
 
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        typingElement.textContent = roles[0];
-        return;
-      }
+let count=0;
+let index=0;
+let currentText="";
+let letter="";
 
-      typingElement.textContent = currentRole.slice(0, characterIndex);
+(function type(){
 
-      if (!deleting && characterIndex < currentRole.length) {
-        characterIndex++;
-        typingTimer = setTimeout(typeRole, 100);
-      } else if (!deleting) {
-        deleting = true;
-        typingTimer = setTimeout(typeRole, 1200);
-      } else if (characterIndex > 0) {
-        characterIndex--;
-        typingTimer = setTimeout(typeRole, 45);
-      } else {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        typingTimer = setTimeout(typeRole, 300);
-      }
-    }
+if(count===text.length){
+count=0;
+}
 
-    typeRole();
+currentText=text[count];
+letter=currentText.slice(0,++index);
 
-    // Dynamic copyright year
-    const yearElement = document.getElementById("year");
+document.getElementById("typing").textContent=letter;
 
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
+if(letter.length===currentText.length){
 
-    // Footer legal dropdown
-    const legalToggle = document.getElementById("legalToggle");
-    const legalLinks = document.getElementById("legalLinks");
+count++;
+index=0;
 
-    if (legalToggle && legalLinks) {
-      legalToggle.addEventListener("click", () => {
-        const expanded =
-          legalToggle.getAttribute("aria-expanded") === "true";
+setTimeout(type,1000);
 
-        legalToggle.setAttribute("aria-expanded", String(!expanded));
-        legalLinks.hidden = expanded;
-      });
+}else{
 
-      document.addEventListener("click", (event) => {
-        if (!event.target.closest(".footer-legal")) {
-          legalLinks.hidden = true;
-          legalToggle.setAttribute("aria-expanded", "false");
-        }
-      });
+setTimeout(type,120);
 
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && !legalLinks.hidden) {
-          legalLinks.hidden = true;
-          legalToggle.setAttribute("aria-expanded", "false");
-          legalToggle.focus();
-        }
-      });
-    }
+}
 
-    // Light and dark mode
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = themeToggle?.querySelector("i");
+})();
 
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        const isLight = document.body.classList.toggle("light-mode");
+function toggleMode(){
+document.body.classList.toggle("light-mode");
+}
 
-        themeToggle.setAttribute("aria-pressed", String(isLight));
-        themeToggle.setAttribute(
-          "aria-label",
-          isLight ? "Switch to dark mode" : "Switch to light mode"
-        );
-
-        if (themeIcon) {
-          themeIcon.className = isLight
-            ? "fas fa-sun"
-            : "fas fa-moon";
-        }
-      });
-    }
-  </script>
+</script>
 
 </body>
 </html>
