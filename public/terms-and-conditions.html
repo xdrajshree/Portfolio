@@ -1,89 +1,511 @@
-# Terms and Conditions
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-**Last updated: 12 October 2026**
+    <title>Terms and Conditions | Raj Shree</title>
 
-Welcome to the personal portfolio website of Raj Shree. By accessing or using this website, you agree to these Terms and Conditions. If you do not agree with these terms, please discontinue use of the website.
+    <meta name="description" content="Read the Terms and Conditions for Raj Shree's personal portfolio website, including intellectual property, acceptable use, project information, privacy, and liability.">
 
-## 1. Website Purpose
+    <style>
+        /* =====================================
+           TERMS AND CONDITIONS — DESIGN
+        ===================================== */
 
-This website showcases my personal profile, skills, projects, technical interests, learning journey, and professional information.
+        * {
+            box-sizing: border-box;
+        }
 
-The content is provided primarily for informational and professional purposes.
+        body {
+            margin: 0;
+            padding: 1px 0;
 
-## 2. Intellectual Property
+            background: #f8fafc;
+            color: #374151;
 
-Unless otherwise stated, original content created by me for this website, including written content, original graphics, website layouts, and original code, is protected by applicable intellectual property laws.
+            font-family: -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-You may view this content and share links to publicly available pages for personal, educational, or professional reference.
+        /* Main document container */
 
-You must not reproduce, redistribute, commercially exploit, or claim my original work as your own without appropriate permission, except where permitted by law or an applicable licence.
+        .terms-page {
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 48px 52px;
 
-Third-party materials remain subject to their respective ownership rights and licence terms.
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
 
-## 3. Portfolio Projects
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
 
-Projects displayed on this website may include personal experiments, educational projects, collaborative work, demonstrations, or other examples of my technical interests.
+            font-size: 16px;
+            line-height: 1.85;
+            overflow-wrap: anywhere;
+        }
 
-Not every project necessarily represents a commercial product, completed client engagement, or currently maintained service.
+        /* Main heading */
 
-Project details should be interpreted according to the information provided on the relevant page.
+        .terms-page h1 {
+            position: relative;
+            margin: 0 0 16px;
+            padding-bottom: 24px;
 
-## 4. Acceptable Use
+            color: #111827;
+            font-size: clamp(32px, 5vw, 42px);
+            font-weight: 750;
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
 
-You agree not to:
+        .terms-page h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
 
-- Use this website for unlawful purposes.
-- Attempt to gain unauthorised access to the website or its hosting environment.
-- Introduce malicious software or interfere with website operations.
-- Misrepresent my work or infringe the rights of others.
-- Use information submitted through the website for unlawful or abusive purposes.
+            width: 64px;
+            height: 4px;
+            border-radius: 10px;
 
-## 5. Contact Forms and Enquiries
+            background: linear-gradient(
+                90deg,
+                #6366f1,
+                #a78bfa
+            );
+        }
 
-This website uses Google Forms to receive enquiries. Submitting a form does not automatically create a contract, employment relationship, partnership, or obligation to provide services.
+        /* Last updated label */
 
-I use Hostinger Email to receive and respond to communications.
+        .terms-page .last-updated {
+            display: inline-block;
+            margin: 8px 0 28px;
+            padding: 7px 13px;
 
-Any professional engagement will be subject to separately agreed terms, including scope, pricing, deliverables, and timelines where applicable.
+            color: #6366f1;
+            background: #eef2ff;
+            border: 1px solid #e0e7ff;
+            border-radius: 8px;
 
-## 6. External Links
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
 
-This website may contain links to external websites, repositories, and third-party services. These links are provided for convenience and do not necessarily imply endorsement.
+        /* Introductory paragraph */
 
-I do not control all external content or services and cannot guarantee their availability or accuracy.
+        .terms-page .intro {
+            margin-bottom: 32px;
 
-## 7. Website Availability
+            color: #4b5563;
+            font-size: 17px;
+            line-height: 1.9;
+        }
 
-I may modify, suspend, or remove website content or features at any time.
+        /* Section headings */
 
-I do not guarantee uninterrupted access or that the website will always be free of technical errors.
+        .terms-page h2 {
+            margin: 38px 0 13px;
 
-## 8. Disclaimer and Liability
+            color: #111827;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.45;
+            letter-spacing: -0.4px;
+        }
 
-The website and its general content are provided on an "as is" and "as available" basis, to the extent permitted by applicable law.
+        /* Paragraphs */
 
-I do not guarantee that every item of information will always be complete, accurate, or current.
+        .terms-page p {
+            margin: 0 0 20px;
 
-Nothing in these terms excludes or limits any liability that cannot lawfully be excluded or limited.
+            color: #4b5563;
+            font-size: 16px;
+            line-height: 1.9;
+            text-align: left;
+        }
 
-## 9. Privacy
+        .terms-page strong {
+            color: #1f2937;
+            font-weight: 700;
+        }
 
-Your use of this website is also subject to the Privacy Policy published on this website.
+        /* Lists */
 
-## 10. Governing Law
+        .terms-page ul,
+        .terms-page ol {
+            margin: 12px 0 26px;
+            padding-left: 25px;
+        }
 
-These terms are governed by the laws of India, subject to applicable legal requirements and the jurisdiction of competent courts.
+        .terms-page li {
+            padding-left: 5px;
+            margin-bottom: 10px;
 
-## 11. Changes to These Terms
+            color: #4b5563;
+            line-height: 1.85;
+        }
 
-These Terms and Conditions may be updated from time to time. The latest revision date will be displayed at the top of this page.
+        .terms-page li::marker {
+            color: #6366f1;
+        }
 
-## 12. Contact
+        /* Links */
 
-**Website owner:** Raj Shree
+        .terms-page a {
+            color: #4f46e5;
+            font-weight: 550;
+            text-decoration: none;
 
-**Email:** contact@xdrajshree.com
+            overflow-wrap: anywhere;
+            transition: color 0.2s ease;
+        }
 
-**Website:** xdrajshree.com
+        .terms-page a:hover {
+            color: #3730a3;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
 
-For questions about these Terms and Conditions, please contact me using the details above.
+        /* Privacy policy reference */
+
+        .terms-page .policy-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin: 0 0 20px;
+            padding: 10px 15px;
+
+            background: #f8faff;
+            border: 1px solid #e0e7ff;
+            border-radius: 9px;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .terms-page .policy-link:hover {
+            background: #eef2ff;
+            border-color: #a5b4fc;
+            text-decoration: none;
+        }
+
+        /* Contact information */
+
+        .terms-page .contact-box {
+            margin-top: 20px;
+            padding: 22px 24px;
+
+            background: #f8faff;
+            border: 1px solid #e0e7ff;
+            border-left: 4px solid #6366f1;
+            border-radius: 12px;
+        }
+
+        .terms-page .contact-box p {
+            margin-bottom: 10px;
+        }
+
+        .terms-page .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Final element spacing */
+
+        .terms-page > :last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tablet */
+
+        @media (max-width: 768px) {
+            .terms-page {
+                width: calc(100% - 32px);
+                margin: 32px auto;
+                padding: 34px 28px;
+                border-radius: 16px;
+            }
+
+            .terms-page h1 {
+                font-size: 34px;
+            }
+
+            .terms-page h2 {
+                margin-top: 32px;
+                font-size: 20px;
+            }
+
+            .terms-page .intro {
+                font-size: 16px;
+            }
+
+            .terms-page p,
+            .terms-page li {
+                font-size: 15.5px;
+            }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 480px) {
+            .terms-page {
+                width: calc(100% - 24px);
+                margin: 20px auto;
+                padding: 25px 20px;
+                border-radius: 13px;
+
+                box-shadow: 0 6px 24px
+                    rgba(15, 23, 42, 0.05);
+            }
+
+            .terms-page h1 {
+                font-size: 30px;
+                letter-spacing: -0.8px;
+            }
+
+            .terms-page h2 {
+                margin-top: 28px;
+                font-size: 19px;
+            }
+
+            .terms-page p,
+            .terms-page li {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .terms-page .last-updated {
+                font-size: 12px;
+            }
+
+            .terms-page .contact-box {
+                padding: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="terms-page">
+
+        <h1>Terms and Conditions</h1>
+
+        <div class="last-updated">
+            Last updated: 12 October 2026
+        </div>
+
+        <p class="intro">
+            Welcome to the personal portfolio website of Raj Shree.
+            By accessing or using this website, you agree to these
+            Terms and Conditions. If you do not agree with these
+            terms, please discontinue use of the website.
+        </p>
+
+        <h2>1. Website Purpose</h2>
+
+        <p>
+            This website showcases my personal profile, skills,
+            projects, technical interests, learning journey, and
+            professional information.
+        </p>
+
+        <p>
+            The content is provided primarily for informational
+            and professional purposes.
+        </p>
+
+        <h2>2. Intellectual Property</h2>
+
+        <p>
+            Unless otherwise stated, original content created by me
+            for this website, including written content, original
+            graphics, website layouts, and original code, is protected
+            by applicable intellectual property laws.
+        </p>
+
+        <p>
+            You may view this content and share links to publicly
+            available pages for personal, educational, or professional
+            reference.
+        </p>
+
+        <p>
+            You must not reproduce, redistribute, commercially exploit,
+            or claim my original work as your own without appropriate
+            permission, except where permitted by law or an applicable
+            licence.
+        </p>
+
+        <p>
+            Third-party materials remain subject to their respective
+            ownership rights and licence terms.
+        </p>
+
+        <h2>3. Portfolio Projects</h2>
+
+        <p>
+            Projects displayed on this website may include personal
+            experiments, educational projects, collaborative work,
+            demonstrations, or other examples of my technical interests.
+        </p>
+
+        <p>
+            Not every project necessarily represents a commercial
+            product, completed client engagement, or currently
+            maintained service.
+        </p>
+
+        <p>
+            Project details should be interpreted according to the
+            information provided on the relevant page.
+        </p>
+
+        <h2>4. Acceptable Use</h2>
+
+        <p>You agree not to:</p>
+
+        <ul>
+            <li>Use this website for unlawful purposes.</li>
+
+            <li>Attempt to gain unauthorised access to the website
+                or its hosting environment.</li>
+
+            <li>Introduce malicious software or interfere with
+                website operations.</li>
+
+            <li>Misrepresent my work or infringe the rights of others.</li>
+
+            <li>Use information submitted through the website for
+                unlawful or abusive purposes.</li>
+        </ul>
+
+        <h2>5. Contact Forms and Enquiries</h2>
+
+        <p>
+            This website uses Google Forms to receive enquiries.
+            Submitting a form does not automatically create a contract,
+            employment relationship, partnership, or obligation to
+            provide services.
+        </p>
+
+        <p>
+            I use Hostinger Email to receive and respond to communications.
+        </p>
+
+        <p>
+            Any professional engagement will be subject to separately
+            agreed terms, including scope, pricing, deliverables,
+            and timelines where applicable.
+        </p>
+
+        <h2>6. External Links</h2>
+
+        <p>
+            This website may contain links to external websites,
+            repositories, and third-party services. These links are
+            provided for convenience and do not necessarily imply
+            endorsement.
+        </p>
+
+        <p>
+            I do not control all external content or services and
+            cannot guarantee their availability or accuracy.
+        </p>
+
+        <h2>7. Website Availability</h2>
+
+        <p>
+            I may modify, suspend, or remove website content or
+            features at any time.
+        </p>
+
+        <p>
+            I do not guarantee uninterrupted access or that the
+            website will always be free of technical errors.
+        </p>
+
+        <h2>8. Disclaimer and Liability</h2>
+
+        <p>
+            The website and its general content are provided on an
+            "as is" and "as available" basis, to the extent permitted
+            by applicable law.
+        </p>
+
+        <p>
+            I do not guarantee that every item of information will
+            always be complete, accurate, or current.
+        </p>
+
+        <p>
+            Nothing in these terms excludes or limits any liability
+            that cannot lawfully be excluded or limited.
+        </p>
+
+        <h2>9. Privacy</h2>
+
+        <p>
+            Your use of this website is also subject to the Privacy
+            Policy published on this website.
+        </p>
+
+        <a class="policy-link" href="privacy-policy.html">
+            Read the Privacy Policy <span aria-hidden="true">↗</span>
+        </a>
+
+        <h2>10. Governing Law</h2>
+
+        <p>
+            These terms are governed by the laws of India, subject
+            to applicable legal requirements and the jurisdiction
+            of competent courts.
+        </p>
+
+        <h2>11. Changes to These Terms</h2>
+
+        <p>
+            These Terms and Conditions may be updated from time
+            to time. The latest revision date will be displayed
+            at the top of this page.
+        </p>
+
+        <h2>12. Contact</h2>
+
+        <div class="contact-box">
+
+            <p>
+                <strong>Website owner:</strong> Raj Shree
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:contact@xdrajshree.com">
+                    contact@xdrajshree.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Website:</strong>
+                <a href="https://xdrajshree.com">
+                    xdrajshree.com
+                </a>
+            </p>
+
+        </div>
+
+        <p>
+            For questions about these Terms and Conditions, please
+            contact me using the details above.
+        </p>
+
+    </main>
+
+</body>
+</html>

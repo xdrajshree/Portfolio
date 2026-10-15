@@ -1,41 +1,347 @@
-# Disclaimer
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-**Last updated: 12 October 2026**
+    <title>Disclaimer | Raj Shree</title>
+    <meta name="description" content="Read the disclaimer for Raj Shree's personal portfolio website, including information accuracy, technical content, third-party links, and limitations of liability.">
 
-The information published on the personal portfolio website of Raj Shree is provided for general informational and professional purposes.
+    <style>
+        /* =================================
+           DISCLAIMER PAGE DESIGN
+        ================================= */
 
-## 1. Accuracy of Information
+        * {
+            box-sizing: border-box;
+        }
 
-Reasonable efforts are made to keep the website accurate and up to date. However, I do not guarantee that all descriptions, technical details, project statuses, or other information will always be complete, accurate, or current.
+        body {
+            margin: 0;
+            padding: 1px 0;
+            background: #f8fafc;
+            color: #374151;
 
-## 2. Skills and Experience
+            font-family: -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-Skills, technologies, and projects are presented to describe my work and interests. A project demonstration does not automatically establish a particular professional certification, commercial deployment, or level of expertise beyond what is expressly stated.
+        .disclaimer {
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 48px 52px;
 
-## 3. Technical and Educational Content
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
 
-Any code examples, technical explanations, or educational resources are provided for informational purposes. Users should independently review and test any material before relying on it in their own environments.
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
 
-## 4. Third-Party Websites
+            font-size: 16px;
+            line-height: 1.85;
+            overflow-wrap: anywhere;
+        }
 
-Links to external websites are provided for convenience. I am not responsible for the accuracy, availability, security, or privacy practices of services that I do not control.
+        /* Main heading */
 
-## 5. No Professional Advice
+        .disclaimer h1 {
+            position: relative;
+            margin: 0 0 16px;
+            padding-bottom: 24px;
 
-Unless expressly agreed in writing for a specific engagement, the content of this portfolio does not constitute legal, financial, medical, or other regulated professional advice.
+            color: #111827;
+            font-size: clamp(32px, 5vw, 42px);
+            font-weight: 750;
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
 
-## 6. Limitation of Liability
+        .disclaimer h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
 
-To the extent permitted by applicable law, I disclaim warranties regarding uninterrupted availability, suitability, and error-free operation of this website.
+            width: 64px;
+            height: 4px;
+            border-radius: 10px;
 
-Nothing in this disclaimer excludes rights or liabilities that cannot lawfully be excluded.
+            background: linear-gradient(
+                90deg,
+                #6366f1,
+                #a78bfa
+            );
+        }
 
-## 7. Contact
+        /* Last updated label */
 
-For questions concerning this disclaimer, contact:
+        .disclaimer .last-updated {
+            display: inline-block;
+            margin: 8px 0 28px;
+            padding: 7px 13px;
 
-**Raj Shree**
+            color: #6366f1;
+            background: #eef2ff;
+            border: 1px solid #e0e7ff;
+            border-radius: 8px;
 
-**Email:** contact@rajshree.com
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
 
-**Website:** xdrajshree.com
+        /* Introductory paragraph */
+
+        .disclaimer .intro {
+            margin-bottom: 34px;
+            color: #4b5563;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* Section headings */
+
+        .disclaimer h2 {
+            margin: 36px 0 12px;
+
+            color: #111827;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.45;
+            letter-spacing: -0.4px;
+        }
+
+        /* Body paragraphs */
+
+        .disclaimer p {
+            margin: 0 0 20px;
+            color: #4b5563;
+
+            font-size: 16px;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        .disclaimer strong {
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        /* Contact section */
+
+        .disclaimer .contact-box {
+            margin-top: 24px;
+            padding: 24px;
+
+            background: #f8faff;
+            border: 1px solid #e0e7ff;
+            border-left: 4px solid #6366f1;
+            border-radius: 12px;
+        }
+
+        .disclaimer .contact-box p {
+            margin-bottom: 10px;
+        }
+
+        .disclaimer .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Links */
+
+        .disclaimer a {
+            color: #4f46e5;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .disclaimer a:hover {
+            color: #3730a3;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Last element spacing */
+
+        .disclaimer > :last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tablet */
+
+        @media (max-width: 768px) {
+            .disclaimer {
+                width: calc(100% - 32px);
+                margin: 32px auto;
+                padding: 34px 28px;
+                border-radius: 16px;
+            }
+
+            .disclaimer h1 {
+                font-size: 34px;
+            }
+
+            .disclaimer h2 {
+                margin-top: 30px;
+                font-size: 20px;
+            }
+
+            .disclaimer .intro {
+                font-size: 16px;
+            }
+
+            .disclaimer p {
+                font-size: 15.5px;
+            }
+        }
+
+        /* Mobile phones */
+
+        @media (max-width: 480px) {
+            .disclaimer {
+                width: calc(100% - 24px);
+                margin: 20px auto;
+                padding: 25px 20px;
+                border-radius: 13px;
+
+                box-shadow: 0 6px 24px
+                    rgba(15, 23, 42, 0.05);
+            }
+
+            .disclaimer h1 {
+                font-size: 30px;
+                letter-spacing: -0.8px;
+            }
+
+            .disclaimer h2 {
+                margin-top: 27px;
+                font-size: 19px;
+            }
+
+            .disclaimer p {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .disclaimer .last-updated {
+                font-size: 12px;
+            }
+
+            .disclaimer .contact-box {
+                padding: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="disclaimer">
+
+        <h1>Disclaimer</h1>
+
+        <div class="last-updated">
+            Last updated: 12 October 2026
+        </div>
+
+        <p class="intro">
+            The information published on the personal portfolio website
+            of Raj Shree is provided for general informational and
+            professional purposes.
+        </p>
+
+        <h2>1. Accuracy of Information</h2>
+
+        <p>
+            Reasonable efforts are made to keep the website accurate
+            and up to date. However, I do not guarantee that all
+            descriptions, technical details, project statuses, or
+            other information will always be complete, accurate,
+            or current.
+        </p>
+
+        <h2>2. Skills and Experience</h2>
+
+        <p>
+            Skills, technologies, and projects are presented to
+            describe my work and interests. A project demonstration
+            does not automatically establish a particular professional
+            certification, commercial deployment, or level of expertise
+            beyond what is expressly stated.
+        </p>
+
+        <h2>3. Technical and Educational Content</h2>
+
+        <p>
+            Any code examples, technical explanations, or educational
+            resources are provided for informational purposes. Users
+            should independently review and test any material before
+            relying on it in their own environments.
+        </p>
+
+        <h2>4. Third-Party Websites</h2>
+
+        <p>
+            Links to external websites are provided for convenience.
+            I am not responsible for the accuracy, availability,
+            security, or privacy practices of services that I do
+            not control.
+        </p>
+
+        <h2>5. No Professional Advice</h2>
+
+        <p>
+            Unless expressly agreed in writing for a specific
+            engagement, the content of this portfolio does not
+            constitute legal, financial, medical, or other regulated
+            professional advice.
+        </p>
+
+        <h2>6. Limitation of Liability</h2>
+
+        <p>
+            To the extent permitted by applicable law, I disclaim
+            warranties regarding uninterrupted availability,
+            suitability, and error-free operation of this website.
+        </p>
+
+        <p>
+            Nothing in this disclaimer excludes rights or liabilities
+            that cannot lawfully be excluded.
+        </p>
+
+        <h2>7. Contact</h2>
+
+        <p>
+            For questions concerning this disclaimer, contact:
+        </p>
+
+        <div class="contact-box">
+
+            <p>
+                <strong>Name:</strong> Raj Shree
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:contact@rajshree.com">
+                    contact@rajshree.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Website:</strong>
+                <a href="https://xdrajshree.com">
+                    xdrajshree.com
+                </a>
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
