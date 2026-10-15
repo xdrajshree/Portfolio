@@ -666,137 +666,208 @@ a:focus-visible {
   }
 }
 /* ---------------- Legal Pages ----------------*/
-```css
-/* Copyright / Legal Page Styling */
+/* =========================================
+   COPYRIGHT PAGE — PROFESSIONAL DESIGN
+========================================= */
+
 .copyright {
-    max-width: 850px;
-    margin: 40px auto;
-    padding: 35px 40px;
+    --legal-accent: #6366f1;
+    --legal-text: #374151;
+    --legal-heading: #111827;
+    --legal-muted: #6b7280;
+    --legal-border: #e5e7eb;
+
+    width: min(100% - 40px, 900px);
+    margin: 60px auto;
+    padding: 48px 52px;
+
+    box-sizing: border-box;
+    background: #ffffff;
+    color: var(--legal-text);
+
+    border: 1px solid var(--legal-border);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                  Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.85;
-    letter-spacing: 0.1px;
 
-    color: #374151;
-    background-color: #ffffff;
+    overflow-wrap: anywhere;
+}
 
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+/* Main title */
+.copyright h1 {
+    position: relative;
+    margin: 0 0 32px;
+    padding-bottom: 22px;
+
+    color: var(--legal-heading);
+    font-size: clamp(32px, 5vw, 42px);
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: -1.3px;
+}
+
+.copyright h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 64px;
+    height: 4px;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        var(--legal-accent),
+        #a78bfa
+    );
+}
+
+/* Section headings */
+.copyright h2 {
+    margin: 38px 0 14px;
+    color: var(--legal-heading);
+
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.45px;
+}
+
+.copyright h3 {
+    margin: 28px 0 12px;
+    color: var(--legal-heading);
+    font-size: 19px;
+    font-weight: 650;
 }
 
 /* Paragraphs */
 .copyright p {
-    margin: 0 0 22px;
+    margin: 0 0 20px;
+    color: var(--legal-text);
+
     font-size: 16px;
     line-height: 1.9;
-    color: #4b5563;
     text-align: left;
 }
 
-/* Headings */
-.copyright h1 {
-    font-size: clamp(28px, 4vw, 38px);
-    line-height: 1.25;
-    font-weight: 750;
-    letter-spacing: -0.8px;
-    color: #111827;
-    margin: 0 0 24px;
-}
-
-.copyright h2 {
-    font-size: 23px;
-    line-height: 1.4;
+/* Emphasized text */
+.copyright strong,
+.copyright b {
+    color: var(--legal-heading);
     font-weight: 700;
-    color: #111827;
-    margin: 36px 0 14px;
-}
-
-.copyright h3 {
-    font-size: 18px;
-    line-height: 1.5;
-    font-weight: 650;
-    color: #1f2937;
-    margin: 26px 0 10px;
-}
-
-/* Links */
-.copyright a {
-    color: #2563eb;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 4px;
-    transition: color 0.2s ease,
-                text-decoration-color 0.2s ease;
-}
-
-.copyright a:hover {
-    color: #1d4ed8;
-    text-decoration-color: currentColor;
 }
 
 /* Lists */
 .copyright ul,
 .copyright ol {
-    padding-left: 26px;
-    margin: 0 0 24px;
-    color: #4b5563;
+    margin: 12px 0 26px;
+    padding-left: 25px;
 }
 
 .copyright li {
     padding-left: 5px;
     margin-bottom: 10px;
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
-/* Strong text */
-.copyright strong,
-.copyright b {
-    color: #1f2937;
-    font-weight: 650;
+.copyright li::marker {
+    color: var(--legal-accent);
 }
 
-/* Mobile Responsive */
+/* Links */
+.copyright a {
+    color: var(--legal-accent);
+    font-weight: 550;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+
+    transition: color 0.2s ease;
+}
+
+.copyright a:hover {
+    color: #4338ca;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Contact details */
+.copyright .legal-contact {
+    margin-top: 30px;
+    padding: 20px 24px;
+
+    background: #f8faff;
+    border: 1px solid #e0e7ff;
+    border-left: 4px solid var(--legal-accent);
+    border-radius: 12px;
+}
+
+/* Avoid unnecessary bottom spacing */
+.copyright > :last-child {
+    margin-bottom: 0;
+}
+
+/* Tablet */
 @media (max-width: 768px) {
     .copyright {
-        margin: 20px auto;
-        padding: 24px 20px;
-        font-size: 15px;
-    }
-
-    .copyright p {
-        font-size: 15px;
-        line-height: 1.85;
-        margin-bottom: 18px;
+        width: calc(100% - 32px);
+        margin: 32px auto;
+        padding: 32px 28px;
+        border-radius: 16px;
     }
 
     .copyright h1 {
-        font-size: 29px;
+        font-size: 34px;
+        margin-bottom: 26px;
     }
 
     .copyright h2 {
         font-size: 21px;
-        margin-top: 30px;
+        margin-top: 32px;
+    }
+
+    .copyright p {
+        font-size: 15.5px;
+        line-height: 1.85;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .copyright {
+        width: calc(100% - 24px);
+        margin: 20px auto;
+        padding: 25px 20px;
+        border-radius: 13px;
+        font-size: 15px;
+        box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .copyright h1 {
+        font-size: 30px;
+        letter-spacing: -0.8px;
+    }
+
+    .copyright h2 {
+        font-size: 19px;
+        margin-top: 28px;
     }
 
     .copyright h3 {
         font-size: 17px;
     }
-}
 
-/* Small Phones */
-@media (max-width: 480px) {
-    .copyright {
-        padding: 20px 16px;
-        margin: 12px auto;
+    .copyright p,
+    .copyright li {
+        font-size: 15px;
+        line-height: 1.8;
     }
 
-    .copyright h1 {
-        font-size: 26px;
-    }
-
-    .copyright h2 {
-        font-size: 19px;
+    .copyright .legal-contact {
+        padding: 16px;
     }
 }
