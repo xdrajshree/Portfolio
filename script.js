@@ -1,4 +1,5 @@
-/* ==========================================
+ console.log("Raj Shree portfolio JavaScript loaded!");
+ /* ==========================================
    RAJ SHREE PORTFOLIO — MAIN JAVASCRIPT
 ========================================== */
 
