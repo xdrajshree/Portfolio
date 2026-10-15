@@ -166,3 +166,57 @@ document.addEventListener("DOMContentLoaded", () => {
         updateThemeButton();
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const legalToggle = document.getElementById("legalToggle");
+    const legalMenu = document.getElementById("legalLinks");
+    const themeToggle = document.getElementById("themeToggle");
+
+    // Legal dropdown
+    if (legalToggle && legalMenu) {
+        legalToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            const isOpen =
+                legalToggle.getAttribute("aria-expanded") === "true";
+
+            legalToggle.setAttribute("aria-expanded", String(!isOpen));
+            legalMenu.hidden = isOpen;
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".footer-legal")) {
+                legalMenu.hidden = true;
+                legalToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                legalMenu.hidden = true;
+                legalToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    // Dark / light mode
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+
+            const isLight =
+                document.body.classList.contains("light-mode");
+            const icon = themeToggle.querySelector("i");
+
+            if (icon) {
+                icon.classList.toggle("fa-moon", !isLight);
+                icon.classList.toggle("fa-sun", isLight);
+            }
+
+            themeToggle.setAttribute(
+                "aria-label",
+                isLight ? "Switch to dark mode" : "Switch to light mode"
+            );
+        });
+    }
+});
