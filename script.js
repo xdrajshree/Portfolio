@@ -1,9 +1,9 @@
-
 /* ========================================
    RAJ SHREE PORTFOLIO — JAVASCRIPT
 ======================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
     // 1. AUTOMATIC COPYRIGHT YEAR
     const yearElement = document.getElementById("year");
 
@@ -19,14 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "Tech Enthusiast"
     ];
 
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    );
+
     let wordIndex = 0;
     let characterIndex = 0;
     let deleting = false;
     let typingTimer;
-
-    const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    );
 
     function typeText() {
         if (!typingElement) return;
@@ -38,16 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const currentWord = words[wordIndex];
 
-        if (deleting) {
-            characterIndex--;
-        } else {
-            characterIndex++;
-        }
-
-        typingElement.textContent = currentWord.slice(
-            0,
-            characterIndex
-        );
+        characterIndex += deleting ? -1 : 1;
+        typingElement.textContent = currentWord.slice(0, characterIndex);
 
         let delay = deleting ? 45 : 90;
 
@@ -60,75 +52,68 @@ document.addEventListener("DOMContentLoaded", () => {
             delay = 350;
         }
 
-        typingTimer = window.setTimeout(typeText, delay);
+        typingTimer = setTimeout(typeText, delay);
     }
 
     if (typingElement) {
         typeText();
+
+        reducedMotion.addEventListener("change", () => {
+            clearTimeout(typingTimer);
+
+            if (reducedMotion.matches) {
+                typingElement.textContent = words[0];
+            } else {
+                characterIndex = 0;
+                deleting = false;
+                typeText();
+            }
+        });
     }
-
-    // Stop the animation if reduced motion is enabled later.
-    reducedMotion.addEventListener("change", () => {
-        window.clearTimeout(typingTimer);
-
-        if (typingElement && reducedMotion.matches) {
-            typingElement.textContent = words[0];
-        } else if (typingElement) {
-            characterIndex = 0;
-            deleting = false;
-            typeText();
-        }
-    });
 
     // 3. LEGAL INFORMATION DROPDOWN
     const legalToggle = document.getElementById("legalToggle");
     const legalMenu = document.getElementById("legalLinks");
     const footerLegal = document.querySelector(".footer-legal");
 
-    function closeLegalMenu(returnFocus = false) {
+    function closeLegalMenu() {
         if (!legalToggle || !legalMenu) return;
 
-        legalToggle.setAttribute("aria-expanded", "false");
         legalMenu.hidden = true;
-
-        if (returnFocus) {
-            legalToggle.focus();
-        }
+        legalToggle.setAttribute("aria-expanded", "false");
     }
 
     if (legalToggle && legalMenu) {
-        // Start closed
         closeLegalMenu();
 
-        legalToggle.addEventListener("click", () => {
+        legalToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+
             const isOpen =
                 legalToggle.getAttribute("aria-expanded") === "true";
 
-            legalToggle.setAttribute(
-                "aria-expanded",
-                String(!isOpen)
-            );
-
             legalMenu.hidden = isOpen;
+            legalToggle.setAttribute("aria-expanded", String(!isOpen));
         });
 
-        // Close when clicking outside the menu
+        // Close menu when clicking outside
         document.addEventListener("click", (event) => {
-            if (
-                footerLegal &&
-                !footerLegal.contains(event.target)
-            ) {
+            if (footerLegal && !footerLegal.contains(event.target)) {
                 closeLegalMenu();
             }
         });
 
-        // Close when Escape is pressed
+        // Close menu with Escape
         document.addEventListener("keydown", (event) => {
-            if (
-                event.key === "Escape" &&
-                legalToggle.getAttribute("aria-expanded") === "true"
-            ) {
-                closeLegalMenu(true);
+            if (event.key === "Escape") {
+                const wasOpen =
+                    legalToggle.getAttribute("aria-expanded") === "true";
+
+                closeLegalMenu();
+
+                if (wasOpen) {
+                    legalToggle.focus();
+                }
             }
         });
     }
@@ -165,58 +150,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateThemeButton();
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const legalToggle = document.getElementById("legalToggle");
-    const legalMenu = document.getElementById("legalLinks");
-    const themeToggle = document.getElementById("themeToggle");
-
-    // Legal dropdown
-    if (legalToggle && legalMenu) {
-        legalToggle.addEventListener("click", (event) => {
-            event.stopPropagation();
-
-            const isOpen =
-                legalToggle.getAttribute("aria-expanded") === "true";
-
-            legalToggle.setAttribute("aria-expanded", String(!isOpen));
-            legalMenu.hidden = isOpen;
-        });
-
-        document.addEventListener("click", (event) => {
-            if (!event.target.closest(".footer-legal")) {
-                legalMenu.hidden = true;
-                legalToggle.setAttribute("aria-expanded", "false");
-            }
-        });
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
-                legalMenu.hidden = true;
-                legalToggle.setAttribute("aria-expanded", "false");
-            }
-        });
-    }
-
-    // Dark / light mode
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("light-mode");
-
-            const isLight =
-                document.body.classList.contains("light-mode");
-            const icon = themeToggle.querySelector("i");
-
-            if (icon) {
-                icon.classList.toggle("fa-moon", !isLight);
-                icon.classList.toggle("fa-sun", isLight);
-            }
-
-            themeToggle.setAttribute(
-                "aria-label",
-                isLight ? "Switch to dark mode" : "Switch to light mode"
-            );
-        });
-    }
 });
