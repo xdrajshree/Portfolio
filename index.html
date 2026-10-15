@@ -286,7 +286,7 @@ nav ul{
 
 <section class="selfimg" id="home">
 
-<img src="Images/selfimg.png" alt="Profile">
+<img src="Images/selfimg.jpg" alt="Profile">
 
 <h1>Hello, I'm <span>Raj Shree</span></h1>
 
@@ -434,48 +434,36 @@ Interactive dashboard for analyzing business data.
 </div>
 
 </section>
+
 <footer>
-    <p>
-        &copy; 2026 Raj Shree
-        <span class="footer-divider">|</span>
-        All Rights Reserved
-    </p>
+<p>© 2026 Raj Shree | All Rights Reserved</p>
 
-    <div class="footer-legal">
+<div class="footer-legal">
+  <button
+    class="legal-toggle"
+    id="legalToggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="legalLinks"
+  >
+    <span>Legal</span>
+    <span class="legal-arrow" aria-hidden="true">⌄</span>
+  </button>
 
-        <button
-            class="legal-toggle"
-            id="legalToggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="legalLinks"
-        >
-            <span>Legal Information</span>
-            <span class="legal-arrow" aria-hidden="true">⌄</span>
-        </button>
+  <nav
+    class="legal-links"
+    id="legalLinks"
+    aria-label="Legal documents"
+    hidden
+  >
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+    <a href="/copyright.html">Copyright Notice</a>
+    <a href="/disclaimer.html">Disclaimer</a>
+    <a href="/legal-information.html">Legal Information</a>
+  </nav>
+</div>
 
-        <nav
-            class="legal-links"
-            id="legalLinks"
-            aria-label="Legal documents"
-            hidden
-        >
-            <a href="/privacy-policy.html">Privacy Policy</a>
-
-            <a href="/terms-and-conditions.html">
-                Terms &amp; Conditions
-            </a>
-
-            <a href="/copyright.html">Copyright Notice</a>
-
-            <a href="/disclaimer.html">Disclaimer</a>
-
-            <a href="/legal-information.html">
-                Legal Information
-            </a>
-        </nav>
-
-    </div>
 </footer>
 
 <button class="toggle" onclick="toggleMode()">
