@@ -1,476 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raj Shree | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Raj Shree's personal portfolio website.">
+    <title>Raj Shree | Portfolio</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    background:#0f172a;
-    color:white;
-}
-
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:1000;
-    background:rgba(15,23,42,0.9);
-    backdrop-filter:blur(10px);
-}
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 10%;
-}
-
-.logo{
-    font-size:1.8rem;
-    font-weight:bold;
-    color:#38bdf8;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-}
-
-nav ul li{
-    margin-left:25px;
-}
-
-nav ul li a{
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#38bdf8;
-}
-
-.selfimg {
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    flex-direction:column;
-    padding:20px;
-    background:linear-gradient(to right,#0f172a,#1e293b);
-}
-
-.selfimg img{
-    width:265px;
-    height:265px;
-    border-radius:50%;
-    border:5px solid #38bdf8;
-    margin-bottom:20px;
-}
-
-.selfimg h1{
-    font-size:3rem;
-}
-
-.selfimg h1 span{
-    color:#38bdf8;
-}
-
-.selfimg p{
-    margin-top:15px;
-    max-width:600px;
-    color:#cbd5e1;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:12px 25px;
-    background:#38bdf8;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:translateY(-5px);
-}
-
-section{
-    padding:100px 10%;
-}
-
-.section-title{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:50px;
-    color:#38bdf8;
-}
-
-.about{
-    text-align:center;
-    max-width:900px;
-    margin:auto;
-}
-
-.skills{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.skill{
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    transition:0.3s;
-}
-
-.skill:hover{
-    transform:translateY(-10px);
-}
-
-.skill i{
-    font-size:40px;
-    margin-bottom:15px;
-    color:#38bdf8;
-}
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.project-card{
-    background:#1e293b;
-    border-radius:15px;
-    overflow:hidden;
-    transition:0.3s;
-}
-
-.project-card:hover{
-    transform:translateY(-10px);
-}
-
-.project-card img{
-    width:100%;
-}
-
-.project-content{
-    padding:20px;
-}
-
-.project-content h3{
-    margin-bottom:10px;
-}
-
-.project-content p{
-    color:#cbd5e1;
-}
-
-.project-links{
-    margin-top:15px;
-}
-
-.project-links a{
-    color:#38bdf8;
-    text-decoration:none;
-    margin-right:15px;
-}
-
-.contact{
-    text-align:center;
-}
-
-.contact-icons{
-    margin-top:30px;
-}
-
-.contact-icons a{
-    color:white;
-    font-size:28px;
-    margin:0 15px;
-    transition:0.3s;
-}
-
-.contact-icons a:hover{
-    color:#38bdf8;
-}
-
-footer{
-    text-align:center;
-    padding:25px;
-    background:#020617;
-}
-
-.toggle{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    cursor:pointer;
-    background:#38bdf8;
-    color:white;
-    font-size:20px;
-}
-
-.light-mode{
-    background:#f8fafc;
-    color:#111827;
-}
-
-.light-mode .skill,
-.light-mode .project-card{
-    background:white;
-    color:black;
-}
-
-.light-mode header{
-    background:rgba(255,255,255,0.9);
-}
-
-@media(max-width:768px){
-
-nav{
-    flex-direction:column;
-}
-
-nav ul{
-    margin-top:15px;
-}
-
-.selfimg h1{
-    font-size:2rem;
-}
-
-}
-
-</style>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a class="logo" href="#home">Portfolio<span>.</span></a>
 
-<header>
-<nav>
-<div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</header>
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
 
-<section class="selfimg" id="home">
+                <img class="profile-image"
+                     src="Images/selfimg.jpg"
+                     alt="Raj Shree">
 
-<img src="Images/selfimg.jpg" alt="Profile">
+                <h1>Hello, I'm <span>Raj Shree</span></h1>
+                <h2>I'm a <span id="typing">Web Developer</span><span class="cursor">|</span></h2>
 
-<h1>Hello, I'm <span>Raj Shree</span></h1>
+                <p class="hero-description">
+                    Passionate about web development, Python and data science.
+                    I enjoy building modern websites and learning new technologies.
+                </p>
 
-<h2 id="typing"></h2>
+                <a class="primary-button" href="#projects">
+                    Explore My Work <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
-<p>
-Passionate Web Developer and Future Data Scientist.
-I create beautiful websites and innovative solutions.
-</p>
+            <a class="scroll-down" href="#about" aria-label="Scroll to About">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
 
-<a href="#projects" class="btn">View Projects</a>
+        <section class="section" id="about">
+            <div class="section-heading">
+                <p class="eyebrow">GET TO KNOW ME</p>
+                <h2>About <span>Me</span></h2>
+            </div>
 
-</section>
+            <div class="about-card">
+                <p>
+                    I am a developer who enjoys creating modern, responsive
+                    websites and exploring technology. I am currently learning
+                    web development, Python and data science while improving
+                    my programming skills through practical projects.
+                </p>
+            </div>
+        </section>
 
-<section id="about">
+        <section class="section" id="skills">
+            <div class="section-heading">
+                <p class="eyebrow">WHAT I AM LEARNING</p>
+                <h2>My <span>Skills</span></h2>
+            </div>
 
-<h2 class="section-title">About Me</h2>
+            <div class="skills-grid">
+                <article class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML</h3>
+                    <p>Web page structure</p>
+                </article>
 
-<div class="about">
-<p>
-I am a passionate developer who loves building modern,
-responsive websites and learning new technologies.
-Currently exploring Web Development, Python, and Data Science.
-</p>
-</div>
+                <article class="skill-card">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS</h3>
+                    <p>Styling and responsive layouts</p>
+                </article>
 
-</section>
+                <article class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Interactive web experiences</p>
+                </article>
 
-<section id="skills">
+                <article class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p>Programming fundamentals</p>
+                </article>
 
-<h2 class="section-title">Skills</h2>
+                <article class="skill-card">
+                    <i class="fab fa-java"></i>
+                    <h3>Java</h3>
+                    <p>Programming fundamentals</p>
+                </article>
+            </div>
+        </section>
 
-<div class="skills">
+        <section class="section" id="projects">
+            <div class="section-heading">
+                <p class="eyebrow">SOME THINGS I HAVE BUILT</p>
+                <h2>My <span>Projects</span></h2>
+            </div>
 
-<div class="skill">
-<i class="fab fa-html5"></i>
-<h3>HTML</h3>
-</div>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Portfolio</h3>
+                        <p>A responsive website showcasing my profile and skills.</p>
+                        <span class="project-tag">HTML · CSS · JavaScript</span>
+                    </div>
+                </article>
 
-<div class="skill">
-<i class="fab fa-css3-alt"></i>
-<h3>CSS</h3>
-</div>
+                <article class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Website Project</h3>
+                        <p>A place to showcase a website project as it develops.</p>
+                        <span class="project-tag">Web Development</span>
+                    </div>
+                </article>
 
-<div class="skill">
-<i class="fab fa-js"></i>
-<h3>JavaScript</h3>
-</div>
+                <article class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Science</h3>
+                        <p>A future project exploring data analysis and visualisation.</p>
+                        <span class="project-tag">Python · Learning</span>
+                    </div>
+                </article>
+            </div>
+            <p class="projects-note">
+                Replace these sample project descriptions with your actual work and links.
+            </p>
+        </section>
 
-<div class="skill">
-<i class="fab fa-python"></i>
-<h3>Python</h3>
-</div>
+        <section class="section contact-section" id="contact">
+            <div class="section-heading">
+                <p class="eyebrow">LET'S CONNECT</p>
+                <h2>Contact <span>Me</span></h2>
+            </div>
 
-<div class="skill">
-<i class="fab fa-java"></i>
-<h3>Java</h3>
-</div>
-</div>
+            <p class="contact-description">
+                Have a question or want to work together? Feel free to reach out.
+            </p>
 
-</section>
+            <a class="contact-email" href="mailto:contact@xdrajshree.com">
+                <i class="fas fa-envelope"></i>
+                contact@xdrajshree.com
+            </a>
 
-<section id="projects">
+            <div class="social-links">
+                <!-- Replace # with your actual profile URLs. -->
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </section>
+    </main>
 
-<h2 class="section-title">Projects</h2>
+    <footer class="site-footer">
+        <p class="copyright">
+            &copy; <span id="year">2026</span> Raj Shree
+            <span class="footer-divider">·</span>
+            All Rights Reserved
+        </p>
 
-<!-- <div class="projects">
+        <div class="footer-legal">
+            <button
+                class="legal-toggle"
+                id="legalToggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="legalLinks"
+            >
+                <i class="fas fa-scale-balanced"></i>
+                <span>Legal Information</span>
+                <i class="fas fa-chevron-down legal-arrow" aria-hidden="true"></i>
+            </button>
 
-<div class="project-card">
-<img src="https://picsum.photos/500/300?1">
+            <nav
+                class="legal-menu"
+                id="legalLinks"
+                aria-label="Legal documents"
+                hidden
+            >
+                <a href="/privacy-policy.html">
+                    <i class="fas fa-shield-halved"></i> Privacy Policy
+                </a>
+                <a href="/terms-and-conditions.html">
+                    <i class="fas fa-file-contract"></i> Terms &amp; Conditions
+                </a>
+                <a href="/copyright.html">
+                    <i class="far fa-copyright"></i> Copyright Notice
+                </a>
+                <a href="/disclaimer.html">
+                    <i class="fas fa-circle-info"></i> Disclaimer
+                </a>
+                <a href="/legal-information.html">
+                    <i class="fas fa-scale-balanced"></i> Legal Information
+                </a>
+            </nav>
+        </div>
 
-<div class="project-content">
-<h3>Marriage Hall Website</h3>
-<p>
-Modern responsive website for wedding and event bookings.
-</p>
+        <p class="footer-note">Designed with care by Raj Shree.</p>
+    </footer>
 
-<div class="project-links">
-<a href="#">Live Demo</a>
-<a href="#">GitHub</a>
-</div>
-
-</div>
-</div>
-
-<div class="project-card">
-<img src="https://picsum.photos/500/300?2">
-
-<div class="project-content">
-<h3>Portfolio Website</h3>
-<p>
-Personal portfolio built using HTML, CSS and JavaScript.
-</p>
-
-<div class="project-links">
-<a href="#">Live Demo</a>
-<a href="#">GitHub</a>
-</div>
-
-</div>
-</div>
-
-<div class="project-card">
-<img src="https://picsum.photos/500/300?3">
-
-<div class="project-content">
-<h3>Data Science Dashboard</h3>
-<p>
-Interactive dashboard for analyzing business data.
-</p>
-
-<div class="project-links">
-<a href="#">Live Demo</a>
-<a href="#">GitHub</a>
-</div>
-
-</div>
-</div>
-
-</div> -->
-
-</section>
-
-<section id="contact">
-
-<h2 class="section-title">Contact Me</h2>
-
-<div class="contact">
-
-<p>Email: contact@xdrajshree.com</p>
-<p>Phone: +91 9470261854</p>
-
-<div class="contact-icons">
-
-<a href="#"><i class="fab fa-github"></i></a>
-
-<a href="#"><i class="fab fa-linkedin"></i></a>
-
-<a href="#"><i class="fab fa-twitter"></i></a>
-
-<a href="#"><i class="fas fa-envelope"></i></a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-<p>© 2026 Raj Shree | All Rights Reserved</p>
-
-<div class="footer-legal">
-  <button
-    class="legal-toggle"
-    id="legalToggle"
-    type="button"
-    aria-expanded="false"
-    aria-controls="legalLinks"
-  >
-    <span>Legal</span>
-    <span class="legal-arrow" aria-hidden="true">⌄</span>
-  </button>
-
-  <nav
-    class="legal-links"
-    id="legalLinks"
-    aria-label="Legal documents"
-    hidden
-  >
-    <a href="/privacy-policy.html">Privacy Policy</a>
-    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
-    <a href="/copyright.html">Copyright Notice</a>
-    <a href="/disclaimer.html">Disclaimer</a>
-    <a href="/legal-information.html">Legal Information</a>
-  </nav>
-</div>
-
-</footer>
-
-<button class="toggle" onclick="toggleMode()">
-<i class="fas fa-moon"></i>
-</button>
-
-
+    <button class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Switch to light mode">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+    </button>
 </body>
 </html>

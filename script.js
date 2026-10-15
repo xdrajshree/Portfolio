@@ -1,292 +1,119 @@
- console.log("Raj Shree portfolio JavaScript loaded!");
- /* ==========================================
-   RAJ SHREE PORTFOLIO — MAIN JAVASCRIPT
-========================================== */
+
+/* ========================================
+   RAJ SHREE PORTFOLIO — JAVASCRIPT
+======================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ======================================
-       1. AUTOMATIC COPYRIGHT YEAR
-    ====================================== */
-
+    // 1. AUTOMATIC COPYRIGHT YEAR
     const yearElement = document.getElementById("year");
 
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
 
+    // 2. TYPING ANIMATION
+    const typingElement = document.getElementById("typing");
+    const words = [
+        "Web Developer",
+        "Programmer",
+        "Tech Enthusiast"
+    ];
 
-    /* ======================================
-       2. GOLD PARTICLE CANVAS ANIMATION
-    ====================================== */
+    let wordIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
+    let typingTimer;
 
-    const canvas = document.getElementById("gold-grid");
-    const prefersReducedMotion = window.matchMedia(
+    const reducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     );
 
-    let ctx = null;
-    let points = [];
-    let animationFrame = null;
+    function typeText() {
+        if (!typingElement) return;
 
-    if (canvas && canvas.getContext) {
-        ctx = canvas.getContext("2d");
-    }
-
-    function createPoints() {
-        if (!canvas || !ctx) return;
-
-        const count = Math.min(
-            42,
-            Math.floor(window.innerWidth / 32)
-        );
-
-        points = Array.from({ length: count }, () => ({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * Math.min(window.innerHeight, 760),
-            radius: Math.random() * 1.2 + 0.5,
-            vx: (Math.random() - 0.5) * 0.12,
-            vy: (Math.random() - 0.5) * 0.12
-        }));
-    }
-
-    function resizeCanvas() {
-        if (!canvas || !ctx) return;
-
-        const pixelRatio = Math.min(
-            window.devicePixelRatio || 1,
-            2
-        );
-
-        canvas.width = Math.round(
-            window.innerWidth * pixelRatio
-        );
-
-        canvas.height = Math.round(
-            window.innerHeight * pixelRatio
-        );
-
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
-
-        ctx.setTransform(
-            pixelRatio, 0, 0, pixelRatio, 0, 0
-        );
-
-        createPoints();
-        renderCanvas();
-    }
-
-    function renderCanvas() {
-        if (!canvas || !ctx) return;
-
-        ctx.clearRect(
-            0, 0, window.innerWidth, window.innerHeight
-        );
-
-        ctx.fillStyle = "rgba(215, 173, 80, 0.42)";
-        ctx.strokeStyle = "rgba(215, 173, 80, 0.08)";
-        ctx.lineWidth = 1;
-
-        points.forEach((point, index) => {
-
-            if (!prefersReducedMotion.matches) {
-                point.x += point.vx;
-                point.y += point.vy;
-            }
-
-            if (
-                point.x < 0 ||
-                point.x > window.innerWidth
-            ) {
-                point.vx *= -1;
-            }
-
-            if (
-                point.y < 0 ||
-                point.y > window.innerHeight
-            ) {
-                point.vy *= -1;
-            }
-
-            // Draw particle
-            ctx.beginPath();
-
-            ctx.arc(
-                point.x,
-                point.y,
-                point.radius,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-            // Connect nearby particles
-            for (
-                let next = index + 1;
-                next < points.length;
-                next++
-            ) {
-                const other = points[next];
-
-                const distance = Math.hypot(
-                    point.x - other.x,
-                    point.y - other.y
-                );
-
-                if (distance < 150) {
-                    ctx.globalAlpha = 1 - distance / 150;
-
-                    ctx.beginPath();
-                    ctx.moveTo(point.x, point.y);
-                    ctx.lineTo(other.x, other.y);
-                    ctx.stroke();
-
-                    ctx.globalAlpha = 1;
-                }
-            }
-        });
-
-        if (!prefersReducedMotion.matches) {
-            animationFrame = requestAnimationFrame(
-                renderCanvas
-            );
+        if (reducedMotion.matches) {
+            typingElement.textContent = words[0];
+            return;
         }
-    }
 
-    function startCanvasAnimation() {
-        if (!canvas || !ctx) return;
+        const currentWord = words[wordIndex];
 
-        cancelAnimationFrame(animationFrame);
-        renderCanvas();
-    }
+        if (deleting) {
+            characterIndex--;
+        } else {
+            characterIndex++;
+        }
 
-    function handleMotionPreferenceChange() {
-        startCanvasAnimation();
-    }
-
-    if (canvas && ctx) {
-        resizeCanvas();
-
-        window.addEventListener(
-            "resize",
-            resizeCanvas,
-            { passive: true }
+        typingElement.textContent = currentWord.slice(
+            0,
+            characterIndex
         );
 
-        prefersReducedMotion.addEventListener(
-            "change",
-            handleMotionPreferenceChange
-        );
+        let delay = deleting ? 45 : 90;
+
+        if (!deleting && characterIndex === currentWord.length) {
+            deleting = true;
+            delay = 1300;
+        } else if (deleting && characterIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            delay = 350;
+        }
+
+        typingTimer = window.setTimeout(typeText, delay);
     }
 
+    if (typingElement) {
+        typeText();
+    }
 
-    /* ======================================
-       3. PROJECT FILTERING
-    ====================================== */
+    // Stop the animation if reduced motion is enabled later.
+    reducedMotion.addEventListener("change", () => {
+        window.clearTimeout(typingTimer);
 
-    const filterButtons = document.querySelectorAll(
-        ".filter-button"
-    );
-
-    const projectCards = document.querySelectorAll(
-        ".project-card"
-    );
-
-    filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-
-            const selectedFilter = button.dataset.filter;
-
-            // Update selected filter button
-            filterButtons.forEach((item) => {
-                const isActive = item === button;
-
-                item.classList.toggle("active", isActive);
-
-                item.setAttribute(
-                    "aria-pressed",
-                    String(isActive)
-                );
-            });
-
-            // Filter project cards
-            projectCards.forEach((card) => {
-                const category = card.dataset.category;
-
-                const shouldShow =
-                    selectedFilter === "all" ||
-                    category === selectedFilter;
-
-                card.classList.toggle(
-                    "hidden",
-                    !shouldShow
-                );
-
-                card.setAttribute(
-                    "aria-hidden",
-                    String(!shouldShow)
-                );
-            });
-        });
+        if (typingElement && reducedMotion.matches) {
+            typingElement.textContent = words[0];
+        } else if (typingElement) {
+            characterIndex = 0;
+            deleting = false;
+            typeText();
+        }
     });
 
-
-    /* ======================================
-       4. LEGAL FOOTER DROPDOWN
-    ====================================== */
-
-    const legalToggle = document.getElementById(
-        "legalToggle"
-    );
-
-    const legalLinks = document.getElementById(
-        "legalLinks"
-    );
-
-    const footerLegal = document.querySelector(
-        ".footer-legal"
-    );
+    // 3. LEGAL INFORMATION DROPDOWN
+    const legalToggle = document.getElementById("legalToggle");
+    const legalMenu = document.getElementById("legalLinks");
+    const footerLegal = document.querySelector(".footer-legal");
 
     function closeLegalMenu(returnFocus = false) {
-        if (!legalToggle || !legalLinks) return;
+        if (!legalToggle || !legalMenu) return;
 
-        legalToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        legalLinks.hidden = true;
+        legalToggle.setAttribute("aria-expanded", "false");
+        legalMenu.hidden = true;
 
         if (returnFocus) {
             legalToggle.focus();
         }
     }
 
-    if (legalToggle && legalLinks) {
-
-        // Ensure the initial state is closed
+    if (legalToggle && legalMenu) {
+        // Start closed
         closeLegalMenu();
 
         legalToggle.addEventListener("click", () => {
-
-            const isExpanded =
-                legalToggle.getAttribute(
-                    "aria-expanded"
-                ) === "true";
+            const isOpen =
+                legalToggle.getAttribute("aria-expanded") === "true";
 
             legalToggle.setAttribute(
                 "aria-expanded",
-                String(!isExpanded)
+                String(!isOpen)
             );
 
-            legalLinks.hidden = isExpanded;
+            legalMenu.hidden = isOpen;
         });
 
-        // Close when clicking outside the legal section
+        // Close when clicking outside the menu
         document.addEventListener("click", (event) => {
-
             if (
                 footerLegal &&
                 !footerLegal.contains(event.target)
@@ -295,66 +122,47 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Close with Escape
+        // Close when Escape is pressed
         document.addEventListener("keydown", (event) => {
-
             if (
                 event.key === "Escape" &&
-                legalToggle.getAttribute(
-                    "aria-expanded"
-                ) === "true"
+                legalToggle.getAttribute("aria-expanded") === "true"
             ) {
                 closeLegalMenu(true);
             }
         });
     }
 
+    // 4. DARK / LIGHT MODE
+    const themeToggle = document.getElementById("themeToggle");
 
-    /* ======================================
-       5. LIGHT / DARK MODE
-    ====================================== */
-
-    const themeToggle = document.querySelector(
-        ".toggle"
-    );
-
-    function updateThemeIcon() {
+    function updateThemeButton() {
         if (!themeToggle) return;
 
         const icon = themeToggle.querySelector("i");
+        const isLight = document.body.classList.contains("light-mode");
 
-        if (!icon) return;
-
-        const isLightMode =
-            document.body.classList.contains("light-mode");
-
-        icon.classList.toggle(
-            "fa-moon",
-            !isLightMode
-        );
-
-        icon.classList.toggle(
-            "fa-sun",
-            isLightMode
-        );
+        if (icon) {
+            icon.classList.toggle("fa-moon", !isLight);
+            icon.classList.toggle("fa-sun", isLight);
+        }
 
         themeToggle.setAttribute(
             "aria-label",
-            isLightMode
-                ? "Switch to dark mode"
-                : "Switch to light mode"
+            isLight ? "Switch to dark mode" : "Switch to light mode"
         );
-    }
 
-    // Keep compatibility with onclick="toggleMode()"
-    window.toggleMode = function () {
-        document.body.classList.toggle("light-mode");
-        updateThemeIcon();
-    };
+        themeToggle.title = isLight
+            ? "Switch to dark mode"
+            : "Switch to light mode";
+    }
 
     if (themeToggle) {
-        updateThemeIcon();
-    }
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+            updateThemeButton();
+        });
 
+        updateThemeButton();
+    }
 });
-```
