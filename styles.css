@@ -665,3 +665,136 @@ a:focus-visible {
     gap: 14px;
   }
 }
+
+/* =====================================
+   MODERN PORTFOLIO FOOTER
+===================================== */
+
+footer {
+    background: #020617;
+    color: #f8fafc;
+    padding: 30px 24px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+/* Copyright text */
+footer > p {
+    margin: 0 0 20px;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer-divider {
+    color: #64748b;
+    margin: 0 5px;
+}
+
+/* Legal section */
+.footer-legal {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Legal button */
+.legal-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 18px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 10px;
+
+    background: #0f172a;
+    color: #e2e8f0;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.legal-toggle:hover,
+.legal-toggle[aria-expanded="true"] {
+    background: #13243b;
+    color: #38bdf8;
+    border-color: #38bdf8;
+}
+
+/* Dropdown arrow */
+.legal-arrow {
+    display: inline-block;
+    font-size: 17px;
+    transition: transform 0.25s ease;
+}
+
+.legal-toggle[aria-expanded="true"] .legal-arrow {
+    transform: rotate(180deg);
+}
+
+/* Legal links */
+.legal-links {
+    max-width: 1050px;
+    margin: 22px auto 0;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px 30px;
+}
+
+/* Hide links until the button is clicked */
+.legal-links[hidden] {
+    display: none !important;
+}
+
+/* Individual links */
+.legal-links a {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.legal-links a:hover {
+    color: #38bdf8;
+}
+
+/* Keyboard accessibility */
+.legal-toggle:focus-visible,
+.legal-links a:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 4px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    footer {
+        padding: 26px 18px 22px;
+    }
+
+    footer > p {
+        font-size: 13px;
+    }
+
+    .legal-links {
+        gap: 16px 22px;
+        margin-top: 18px;
+        padding-top: 18px;
+    }
+
+    .legal-links a {
+        font-size: 13px;
+    }
+}

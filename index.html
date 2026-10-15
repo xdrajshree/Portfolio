@@ -286,7 +286,7 @@ nav ul{
 
 <section class="selfimg" id="home">
 
-<img src="Images/Selfpic.jpg" alt="Profile">
+<img src="Images/selfimg.png" alt="Profile">
 
 <h1>Hello, I'm <span>Raj Shree</span></h1>
 
@@ -434,88 +434,54 @@ Interactive dashboard for analyzing business data.
 </div>
 
 </section>
-
 <footer>
-<p>© 2026 Raj Shree | All Rights Reserved</p>
+    <p>
+        &copy; 2026 Raj Shree
+        <span class="footer-divider">|</span>
+        All Rights Reserved
+    </p>
 
-<div class="footer-legal">
-  <button
-    class="legal-toggle"
-    id="legalToggle"
-    type="button"
-    aria-expanded="false"
-    aria-controls="legalLinks"
-  >
-    <span>Legal</span>
-    <span class="legal-arrow" aria-hidden="true">⌄</span>
-  </button>
+    <div class="footer-legal">
 
-  <nav
-    class="legal-links"
-    id="legalLinks"
-    aria-label="Legal documents"
-    hidden
-  >
-    <a href="/privacy-policy.html">Privacy Policy</a>
-    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
-    <a href="/copyright.html">Copyright Notice</a>
-    <a href="/disclaimer.html">Disclaimer</a>
-    <a href="/legal-information.html">Legal Information</a>
-  </nav>
-</div>
+        <button
+            class="legal-toggle"
+            id="legalToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="legalLinks"
+        >
+            <span>Legal Information</span>
+            <span class="legal-arrow" aria-hidden="true">⌄</span>
+        </button>
 
+        <nav
+            class="legal-links"
+            id="legalLinks"
+            aria-label="Legal documents"
+            hidden
+        >
+            <a href="/privacy-policy.html">Privacy Policy</a>
+
+            <a href="/terms-and-conditions.html">
+                Terms &amp; Conditions
+            </a>
+
+            <a href="/copyright.html">Copyright Notice</a>
+
+            <a href="/disclaimer.html">Disclaimer</a>
+
+            <a href="/legal-information.html">
+                Legal Information
+            </a>
+        </nav>
+
+    </div>
 </footer>
 
 <button class="toggle" onclick="toggleMode()">
 <i class="fas fa-moon"></i>
 </button>
 
-<script>
-
-const text =
-[
-"Web Developer",
-"Freelancer",
-"Future Data Scientist",
-"Problem Solver with Ai",
-];
-
-let count=0;
-let index=0;
-let currentText="";
-let letter="";
-
-(function type(){
-
-if(count===text.length){
-count=0;
-}
-
-currentText=text[count];
-letter=currentText.slice(0,++index);
-
-document.getElementById("typing").textContent=letter;
-
-if(letter.length===currentText.length){
-
-count++;
-index=0;
-
-setTimeout(type,1000);
-
-}else{
-
-setTimeout(type,120);
-
-}
-
-})();
-
-function toggleMode(){
-document.body.classList.toggle("light-mode");
-}
-
-</script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
