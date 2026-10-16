@@ -1,38 +1,441 @@
-# Legal Information
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-**Website:** xdrajshree.com
+    <title>Legal Information | Raj Shree</title>
+    <meta name="description" content="Official legal information for Raj Shree's personal portfolio website, including ownership, contact details, third-party services, and related legal documents.">
 
-**Website owner:** Raj Shree
+    <style>
+        /* =================================
+           LEGAL INFORMATION PAGE
+        ================================= */
 
-**Website type:** Personal portfolio website.
+        * {
+            box-sizing: border-box;
+        }
 
-**Purpose:** To showcase personal projects, technical interests, skills, and professional information, and to receive enquiries through Google Forms.
+        body {
+            margin: 0;
+            padding: 1px 0;
+            background: #f8fafc;
+            color: #374151;
 
-## Contact Information
+            font-family: -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-For professional enquiries, collaboration proposals, privacy requests, or copyright concerns, please contact:
+        .legal-info {
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 48px 52px;
 
-**Email:** contact@xdrajshree.com
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
 
-## Website Ownership
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
 
-Original materials created for this website are protected by applicable intellectual property laws, subject to any third-party rights, licences, and agreements.
+            font-size: 16px;
+            line-height: 1.85;
+            overflow-wrap: anywhere;
+        }
 
-Third-party logos, trademarks, software, and other materials remain the property of their respective owners.
+        /* Main heading */
 
-## Third-Party Services
+        .legal-info h1 {
+            position: relative;
+            margin: 0 0 16px;
+            padding-bottom: 24px;
 
-This website uses Google Forms to receive enquiries and Hostinger Email to receive and respond to communications. These services may process information according to their applicable terms and privacy policies.
+            color: #111827;
+            font-size: clamp(32px, 5vw, 42px);
+            font-weight: 750;
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
 
-## Related Legal Documents
+        .legal-info h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
 
-- Privacy Policy
-- Terms and Conditions
-- Copyright Notice
-- Disclaimer
+            width: 64px;
+            height: 4px;
+            border-radius: 10px;
 
-## Updates
+            background: linear-gradient(
+                90deg,
+                #6366f1,
+                #a78bfa
+            );
+        }
 
-This page may be updated when website details, operating practices, or applicable requirements change.
+        /* Updated date */
 
-**Last updated:** 12 October 2026
+        .legal-info .last-updated {
+            display: inline-block;
+            margin: 8px 0 28px;
+            padding: 7px 13px;
+
+            color: #6366f1;
+            background: #eef2ff;
+            border: 1px solid #e0e7ff;
+            border-radius: 8px;
+
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Introductory paragraph */
+
+        .legal-info .intro {
+            margin-bottom: 30px;
+            color: #4b5563;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* Section headings */
+
+        .legal-info h2 {
+            margin: 36px 0 12px;
+
+            color: #111827;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.45;
+            letter-spacing: -0.4px;
+        }
+
+        /* Paragraphs */
+
+        .legal-info p {
+            margin: 0 0 20px;
+            color: #4b5563;
+            font-size: 16px;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        .legal-info strong {
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        /* Website details */
+
+        .legal-info .details-box {
+            margin: 26px 0 32px;
+            padding: 22px 24px;
+
+            background: #f8faff;
+            border: 1px solid #e0e7ff;
+            border-left: 4px solid #6366f1;
+            border-radius: 12px;
+        }
+
+        .legal-info .details-box p {
+            margin-bottom: 10px;
+        }
+
+        .legal-info .details-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Contact card */
+
+        .legal-info .contact-box {
+            margin: 20px 0 28px;
+            padding: 22px 24px;
+
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+
+        .legal-info .contact-box p {
+            margin-bottom: 0;
+        }
+
+        /* Related documents */
+
+        .legal-info .document-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+
+            margin: 18px 0 28px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .legal-info .document-list li {
+            min-width: 0;
+        }
+
+        .legal-info .document-list a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+
+            height: 100%;
+            padding: 15px 17px;
+
+            color: #374151;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .legal-info .document-list a::after {
+            content: "↗";
+            color: #6366f1;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .legal-info .document-list a:hover {
+            color: #4f46e5;
+            background: #f8faff;
+            border-color: #a5b4fc;
+            transform: translateY(-2px);
+        }
+
+        /* General links */
+
+        .legal-info a:not(.document-list a) {
+            color: #4f46e5;
+            font-weight: 600;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+            transition: color 0.2s ease;
+        }
+
+        .legal-info a:not(.document-list a):hover {
+            color: #3730a3;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .legal-info > :last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tablet */
+
+        @media (max-width: 768px) {
+            .legal-info {
+                width: calc(100% - 32px);
+                margin: 32px auto;
+                padding: 34px 28px;
+                border-radius: 16px;
+            }
+
+            .legal-info h1 {
+                font-size: 34px;
+            }
+
+            .legal-info h2 {
+                margin-top: 30px;
+                font-size: 20px;
+            }
+
+            .legal-info .intro {
+                font-size: 16px;
+            }
+
+            .legal-info p {
+                font-size: 15.5px;
+            }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 480px) {
+            .legal-info {
+                width: calc(100% - 24px);
+                margin: 20px auto;
+                padding: 25px 20px;
+                border-radius: 13px;
+
+                box-shadow: 0 6px 24px
+                    rgba(15, 23, 42, 0.05);
+            }
+
+            .legal-info h1 {
+                font-size: 30px;
+                letter-spacing: -0.8px;
+            }
+
+            .legal-info h2 {
+                margin-top: 27px;
+                font-size: 19px;
+            }
+
+            .legal-info p {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .legal-info .last-updated {
+                font-size: 12px;
+            }
+
+            .legal-info .details-box,
+            .legal-info .contact-box {
+                padding: 17px;
+            }
+
+            .legal-info .document-list {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="legal-info">
+
+        <h1>Legal Information</h1>
+
+        <div class="last-updated">
+            Last updated: 12 October 2026
+        </div>
+
+        <p class="intro">
+            This page provides essential information about the ownership,
+            purpose, contact details, and operation of Raj Shree's personal
+            portfolio website.
+        </p>
+
+        <div class="details-box">
+
+            <p>
+                <strong>Website:</strong>
+                <a href="https://xdrajshree.com">
+                    xdrajshree.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Website owner:</strong> Raj Shree
+            </p>
+
+            <p>
+                <strong>Website type:</strong>
+                Personal portfolio website.
+            </p>
+
+            <p>
+                <strong>Purpose:</strong>
+                To showcase personal projects, technical interests,
+                skills, and professional information, and to receive
+                enquiries through Google Forms.
+            </p>
+
+        </div>
+
+        <h2>Contact Information</h2>
+
+        <p>
+            For professional enquiries, collaboration proposals,
+            privacy requests, or copyright concerns, please contact:
+        </p>
+
+        <div class="contact-box">
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:contact@xdrajshree.com">
+                    contact@xdrajshree.com
+                </a>
+            </p>
+
+        </div>
+
+        <h2>Website Ownership</h2>
+
+        <p>
+            Original materials created for this website are protected
+            by applicable intellectual property laws, subject to any
+            third-party rights, licences, and agreements.
+        </p>
+
+        <p>
+            Third-party logos, trademarks, software, and other materials
+            remain the property of their respective owners.
+        </p>
+
+        <h2>Third-Party Services</h2>
+
+        <p>
+            This website uses Google Forms to receive enquiries and
+            Hostinger Email to receive and respond to communications.
+            These services may process information according to their
+            applicable terms and privacy policies.
+        </p>
+
+        <h2>Related Legal Documents</h2>
+
+        <p>
+            The following documents provide additional information
+            about this website and its policies.
+        </p>
+
+        <ul class="document-list">
+
+            <li>
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+            </li>
+
+            <li>
+                <a href="terms.html">
+                    Terms and Conditions
+                </a>
+            </li>
+
+            <li>
+                <a href="copyright.html">
+                    Copyright Notice
+                </a>
+            </li>
+
+            <li>
+                <a href="disclaimer.html">
+                    Disclaimer
+                </a>
+            </li>
+
+        </ul>
+
+        <h2>Updates</h2>
+
+        <p>
+            This page may be updated when website details, operating
+            practices, or applicable requirements change.
+        </p>
+
+    </main>
+
+</body>
+</html>

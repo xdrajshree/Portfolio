@@ -1,42 +1,376 @@
-# Copyright Notice
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-**Copyright © 2026 Raj Shree. All rights reserved, where applicable.**
+    <title>Copyright Notice | Raj Shree</title>
 
-Unless otherwise stated, original material created by Raj Shree and published on this website, including written content, original graphics, original website design, and original code, is protected by applicable copyright and intellectual property laws.
+    <meta name="description" content="Copyright notice for original content, graphics, website design, and code published on Raj Shree's portfolio website.">
 
-## Permitted Use
+    <style>
+        /* ================================
+           COPYRIGHT PAGE
+           Matches Disclaimer Design
+        ================================= */
 
-You may:
+        * {
+            box-sizing: border-box;
+        }
 
-- Access and view this website for personal, educational, or professional purposes.
-- Share links to publicly available portfolio pages.
-- Reference my work with appropriate attribution where permitted by applicable law and the relevant licence.
+        body {
+            margin: 0;
+            padding: 1px 0;
+            background: #f8fafc;
+            color: #374151;
 
-## Restricted Use
+            font-family: -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-Without appropriate permission, you may not reproduce, republish, redistribute, commercially exploit, or represent my original material as your own, except where applicable law permits such use.
+        /* Main content card */
 
-## Third-Party Materials
+        .copyright {
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 48px 52px;
 
-This portfolio may include third-party software, open-source libraries, fonts, icons, images, logos, and other resources.
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
 
-Such materials remain subject to the rights and licence terms of their respective owners. Their inclusion does not imply that I own those materials.
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
 
-Some projects may also involve collaborators. Ownership and permitted use of collaborative work depend on the applicable agreements and licences.
+            font-size: 16px;
+            line-height: 1.85;
+            overflow-wrap: anywhere;
+        }
 
-## Copyright Concerns
+        /* Main heading */
 
-If you believe that content on this website infringes your copyright, please contact me with:
+        .copyright h1 {
+            position: relative;
+            margin: 0 0 16px;
+            padding-bottom: 24px;
 
-- A description of the material concerned.
-- The relevant page URL.
-- An explanation of your concern and, where appropriate, evidence of ownership or authorisation.
-- Your contact details.
+            color: #111827;
+            font-size: clamp(32px, 5vw, 42px);
+            font-weight: 750;
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
 
-I will review legitimate concerns and take appropriate action where warranted.
+        .copyright h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
 
-**Contact email:** contact@xdrajshree.com
+            width: 64px;
+            height: 4px;
+            border-radius: 10px;
 
-**Website:** xdrajshree.com
+            background: linear-gradient(
+                90deg,
+                #6366f1,
+                #a78bfa
+            );
+        }
 
-This notice does not override third-party licences or rights granted under applicable law.
+        /* Copyright notice */
+
+        .copyright .notice {
+            display: inline-block;
+            margin: 8px 0 28px;
+            padding: 7px 13px;
+
+            color: #6366f1;
+            background: #eef2ff;
+            border: 1px solid #e0e7ff;
+            border-radius: 8px;
+
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Intro paragraph */
+
+        .copyright .intro {
+            margin-bottom: 32px;
+            color: #4b5563;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* Section headings */
+
+        .copyright h2 {
+            margin: 38px 0 13px;
+
+            color: #111827;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.45;
+            letter-spacing: -0.4px;
+        }
+
+        /* Paragraphs */
+
+        .copyright p {
+            margin: 0 0 20px;
+            color: #4b5563;
+
+            font-size: 16px;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        .copyright strong {
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        /* Lists */
+
+        .copyright ul,
+        .copyright ol {
+            margin: 12px 0 26px;
+            padding-left: 25px;
+        }
+
+        .copyright li {
+            padding-left: 5px;
+            margin-bottom: 10px;
+
+            color: #4b5563;
+            line-height: 1.85;
+        }
+
+        .copyright li::marker {
+            color: #6366f1;
+        }
+
+        /* Links */
+
+        .copyright a {
+            color: #4f46e5;
+            font-weight: 550;
+            text-decoration: none;
+
+            overflow-wrap: anywhere;
+            transition: color 0.2s ease;
+        }
+
+        .copyright a:hover {
+            color: #3730a3;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Contact information card */
+
+        .copyright .legal-contact {
+            margin: 24px 0 28px;
+            padding: 22px 24px;
+
+            background: #f8faff;
+            border: 1px solid #e0e7ff;
+            border-left: 4px solid #6366f1;
+            border-radius: 12px;
+        }
+
+        .copyright .legal-contact p {
+            margin-bottom: 10px;
+        }
+
+        .copyright .legal-contact p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Last element spacing */
+
+        .copyright > :last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tablet */
+
+        @media (max-width: 768px) {
+            .copyright {
+                width: calc(100% - 32px);
+                margin: 32px auto;
+                padding: 34px 28px;
+                border-radius: 16px;
+            }
+
+            .copyright h1 {
+                font-size: 34px;
+            }
+
+            .copyright h2 {
+                margin-top: 32px;
+                font-size: 20px;
+            }
+
+            .copyright .intro {
+                font-size: 16px;
+            }
+
+            .copyright p,
+            .copyright li {
+                font-size: 15.5px;
+            }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 480px) {
+            .copyright {
+                width: calc(100% - 24px);
+                margin: 20px auto;
+                padding: 25px 20px;
+                border-radius: 13px;
+
+                box-shadow: 0 6px 24px
+                    rgba(15, 23, 42, 0.05);
+            }
+
+            .copyright h1 {
+                font-size: 30px;
+                letter-spacing: -0.8px;
+            }
+
+            .copyright h2 {
+                margin-top: 28px;
+                font-size: 19px;
+            }
+
+            .copyright p,
+            .copyright li {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .copyright .notice {
+                font-size: 12px;
+            }
+
+            .copyright .legal-contact {
+                padding: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="copyright">
+
+        <h1>Copyright</h1>
+
+        <div class="notice">
+            Copyright © 2026 Raj Shree
+        </div>
+
+        <p class="intro">
+            All rights reserved, where applicable. Unless otherwise
+            stated, original material created by Raj Shree and
+            published on this website, including written content,
+            original graphics, original website design, and original
+            code, is protected by applicable copyright and
+            intellectual property laws.
+        </p>
+
+        <h2>Permitted Use</h2>
+
+        <p>You may:</p>
+
+        <ul>
+            <li>Access and view this website for personal,
+                educational, or professional purposes.</li>
+
+            <li>Share links to publicly available portfolio pages.</li>
+
+            <li>Reference my work with appropriate attribution
+                where permitted by applicable law and the
+                relevant licence.</li>
+        </ul>
+
+        <h2>Restricted Use</h2>
+
+        <p>
+            Without appropriate permission, you may not reproduce,
+            republish, redistribute, commercially exploit, or
+            represent my original material as your own, except
+            where applicable law permits such use.
+        </p>
+
+        <h2>Third-Party Materials</h2>
+
+        <p>
+            This portfolio may include third-party software,
+            open-source libraries, fonts, icons, images, logos,
+            and other resources.
+        </p>
+
+        <p>
+            Such materials remain subject to the rights and
+            licence terms of their respective owners. Their
+            inclusion does not imply that I own those materials.
+        </p>
+
+        <p>
+            Some projects may also involve collaborators.
+            Ownership and permitted use of collaborative work
+            depend on the applicable agreements and licences.
+        </p>
+
+        <h2>Copyright Concerns</h2>
+
+        <p>
+            If you believe that content on this website infringes
+            your copyright, please contact me with:
+        </p>
+
+        <ul>
+            <li>A description of the material concerned.</li>
+            <li>The relevant page URL.</li>
+            <li>An explanation of your concern and, where
+                appropriate, evidence of ownership or authorisation.</li>
+            <li>Your contact details.</li>
+        </ul>
+
+        <p>
+            I will review legitimate concerns and take appropriate
+            action where warranted.
+        </p>
+
+        <div class="legal-contact">
+
+            <p>
+                <strong>Contact email:</strong>
+                <a href="mailto:contact@xdrajshree.com">
+                    contact@xdrajshree.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Website:</strong>
+                <a href="https://xdrajshree.com">
+                    xdrajshree.com
+                </a>
+            </p>
+
+        </div>
+
+        <p>
+            This notice does not override third-party licences
+            or rights granted under applicable law.
+        </p>
+
+    </main>
+
+</body>
+</html>
