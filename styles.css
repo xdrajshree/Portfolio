@@ -591,3 +591,405 @@ body.light-mode .legal-toggle[aria-expanded="true"] {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* ========================================
+   HERO REDESIGN — TWO-COLUMN LAYOUT
+   Appended overrides are intentionally
+   limited to the home/hero section.
+======================================== */
+
+#home.hero {
+    min-height: min(780px, calc(100vh - 76px));
+    padding: 72px 28px 86px;
+    justify-content: center;
+    text-align: left;
+    background:
+        radial-gradient(ellipse at 78% 44%, rgba(56, 189, 248, 0.12), transparent 38%),
+        linear-gradient(135deg, var(--bg), #14233a);
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+    align-items: center;
+    gap: clamp(36px, 6vw, 78px);
+}
+
+#home .hero-content {
+    width: 100%;
+    max-width: 650px;
+    text-align: left;
+}
+
+#home .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    font-size: 0.75rem;
+    line-height: 1.7;
+    letter-spacing: 2.2px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.65);
+}
+
+#home .hero-content h1 {
+    margin: 0 0 16px;
+    color: var(--text);
+    font-size: clamp(2.6rem, 4.5vw, 4.25rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -2px;
+}
+
+#home .hero-content h1 .hero-name {
+    color: var(--accent);
+}
+
+#home .hero-role {
+    min-height: 44px;
+    margin: 0 0 18px;
+    font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+#home .hero-role #typing {
+    color: var(--accent);
+}
+
+#home .hero-role .cursor {
+    color: var(--accent);
+}
+
+#home .hero-description {
+    max-width: 540px;
+    margin: 0 0 28px;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+#home .hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#home .hero-actions .primary-button,
+#home .hero-actions .secondary-button {
+    min-height: 50px;
+    margin-top: 0;
+    padding: 13px 21px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: transform 0.25s ease, background 0.25s ease,
+                border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+#home .hero-actions .primary-button:hover,
+#home .hero-actions .secondary-button:hover {
+    transform: translateY(-3px);
+}
+
+#home .hero-actions .secondary-button {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    text-decoration: none;
+}
+
+#home .hero-actions .secondary-button:hover {
+    border-color: var(--accent);
+    background: rgba(56, 189, 248, 0.08);
+}
+
+.hero-socials {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    font-size: 0.84rem;
+}
+
+.hero-socials a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
+    color: var(--accent);
+}
+
+.social-divider {
+    color: #64748b;
+}
+
+.hero-visual {
+    position: relative;
+    isolation: isolate;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-glow {
+    position: absolute;
+    z-index: -2;
+    width: 75%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.16);
+    filter: blur(65px);
+    pointer-events: none;
+}
+
+.hero-image-frame {
+    position: relative;
+    z-index: 1;
+    width: clamp(250px, 28vw, 345px);
+    aspect-ratio: 4 / 5;
+    padding: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(56, 189, 248, 0.75);
+    border-radius: 180px 180px 28px 28px;
+    background: linear-gradient(145deg, rgba(56, 189, 248, 0.28), var(--surface));
+    box-shadow: 0 0 45px rgba(56, 189, 248, 0.12),
+                0 25px 70px rgba(0, 0, 0, 0.24);
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: inherit;
+}
+
+.hero-floating-card {
+    position: absolute;
+    z-index: 3;
+    left: -12px;
+    bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 14px;
+    background: var(--surface);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+.floating-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 10px;
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.12);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.hero-floating-card strong,
+.hero-floating-card div span {
+    display: block;
+}
+
+.hero-floating-card strong {
+    color: var(--text);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.hero-floating-card div span {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    line-height: 1.5;
+}
+
+.hero-orbit {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid rgba(56, 189, 248, 0.13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.orbit-one {
+    width: min(390px, 95%);
+    aspect-ratio: 1;
+}
+
+.orbit-two {
+    width: min(460px, 112%);
+    aspect-ratio: 1;
+    border-style: dashed;
+    opacity: 0.65;
+}
+
+#home .scroll-down {
+    bottom: 24px;
+}
+
+/* Light-mode compatibility */
+body.light-mode #home.hero {
+    background:
+        radial-gradient(ellipse at 78% 44%, rgba(2, 132, 199, 0.10), transparent 38%),
+        linear-gradient(135deg, #f4f7fb, #e6f2fa);
+}
+
+body.light-mode .hero-floating-card {
+    border-color: rgba(2, 132, 199, 0.18);
+    box-shadow: 0 12px 35px rgba(20, 40, 70, 0.10);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    #home.hero {
+        padding: 62px 24px 82px;
+    }
+
+    .hero-container {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 0.8fr);
+        gap: 28px;
+    }
+
+    #home .hero-content h1 {
+        font-size: clamp(2.45rem, 5vw, 3.4rem);
+    }
+
+    .hero-visual {
+        min-height: 370px;
+    }
+
+    .hero-image-frame {
+        width: clamp(220px, 31vw, 285px);
+    }
+
+    .hero-floating-card {
+        left: -10px;
+        bottom: 24px;
+        padding: 11px;
+    }
+}
+
+/* Mobile: stack text and portrait cleanly */
+@media (max-width: 680px) {
+    #home.hero {
+        min-height: auto;
+        padding: 54px 22px 76px;
+    }
+
+    .hero-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+    }
+
+    #home .hero-content {
+        max-width: 100%;
+    }
+
+    #home .hero-eyebrow {
+        margin-bottom: 17px;
+        font-size: 0.67rem;
+        letter-spacing: 1.7px;
+    }
+
+    #home .hero-content h1 {
+        font-size: clamp(2.35rem, 9vw, 3rem);
+        letter-spacing: -1.4px;
+    }
+
+    #home .hero-role {
+        min-height: 38px;
+        font-size: 1.3rem;
+    }
+
+    #home .hero-description {
+        font-size: 0.96rem;
+        line-height: 1.8;
+    }
+
+    #home .hero-actions {
+        gap: 10px;
+    }
+
+    #home .hero-actions .primary-button,
+    #home .hero-actions .secondary-button {
+        padding: 12px 15px;
+        font-size: 0.82rem;
+    }
+
+    .hero-visual {
+        min-height: 345px;
+    }
+
+    .hero-image-frame {
+        width: min(72vw, 285px);
+    }
+
+    .hero-floating-card {
+        left: 0;
+        bottom: 20px;
+    }
+
+    .orbit-one {
+        width: min(300px, 90%);
+    }
+
+    .orbit-two {
+        width: min(345px, 105%);
+    }
+
+    #home .scroll-down {
+        bottom: 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    #home .hero-actions .primary-button,
+    #home .hero-actions .secondary-button {
+        padding: 11px 12px;
+        font-size: 0.78rem;
+    }
+
+    .hero-floating-card {
+        gap: 8px;
+        padding: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #home .hero-actions .primary-button,
+    #home .hero-actions .secondary-button {
+        transition: none;
+    }
+}
+

@@ -40,40 +40,72 @@
     <main>
         <!-- HOME -->
         <section class="hero" id="home">
-            <div class="hero-content">
-                <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+            <div class="hero-container">
+                <!-- Left: introduction -->
+                <div class="hero-content">
+                    <p class="eyebrow hero-eyebrow">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        WELCOME TO MY PORTFOLIO
+                    </p>
 
-                <img
-                    class="profile-image"
-                    src="/Images/selfimg.jpg"
-                    alt="Raj Shree"
-                >
+                    <h1>Hello, I'm <span class="hero-name">Raj Shree.</span></h1>
 
-                <h1>Hello, I'm <span>Raj Shree</span></h1>
+                    <h2 class="hero-role">
+                        I'm a
+                        <span id="typing">Web Developer</span>
+                        <span class="cursor" aria-hidden="true">|</span>
+                    </h2>
 
-                <h2>
-                    I'm a
-                    <span id="typing">Web Developer</span>
-                    <span class="cursor">|</span>
-                </h2>
+                    <p class="hero-description">
+                        Passionate about web development, Python and data science.
+                        I enjoy building modern websites, solving problems, and
+                        learning new technologies to turn ideas into reality.
+                    </p>
 
-                <p class="hero-description">
-                    Passionate about web development, Python and data science.
-                    I enjoy building modern websites and learning new technologies.
-                </p>
+                    <div class="hero-actions">
+                        <a class="primary-button" href="#projects">
+                            Explore My Work
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
 
-                <a class="primary-button" href="#projects">
-                    Explore My Work
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+                        <a class="secondary-button" href="#contact">Contact Me</a>
+                    </div>
+
+                    <div class="hero-socials" aria-label="Additional links">
+                        <a href="https://github.com/xdrajshree"
+                           target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                        <span class="social-divider" aria-hidden="true">/</span>
+                        <a href="#about">Discover My Journey <span aria-hidden="true">↓</span></a>
+                    </div>
+                </div>
+
+                <!-- Right: profile image -->
+                <div class="hero-visual">
+                    <div class="hero-glow" aria-hidden="true"></div>
+                    <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+                    <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+
+                    <div class="hero-image-frame">
+                        <img
+                            class="hero-image"
+                            src="/Images/selfimg.jpg"
+                            alt="Portrait of Raj Shree"
+                            fetchpriority="high"
+                        >
+                    </div>
+
+                    <div class="hero-floating-card">
+                        <span class="floating-icon" aria-hidden="true">&lt;/&gt;</span>
+                        <div>
+                            <strong>Building &amp; Learning</strong>
+                            <span>One project at a time</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <a
-                class="scroll-down"
-                href="#about"
-                aria-label="Scroll to About"
-            >
-                <i class="fas fa-chevron-down"></i>
+            <a class="scroll-down" href="#about" aria-label="Scroll to About">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </a>
         </section>
 
